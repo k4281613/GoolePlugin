@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {addPander,showIcon} from './lib/helper'
+React.$addPander=addPander;
+React.$showIcon=showIcon;
 ReactDOM.render(
   <React.StrictMode>
     <App />
