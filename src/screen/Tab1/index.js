@@ -10,7 +10,7 @@ function Tab1() {
         return () => clearTimeout(timer)
     }, [ctx])
     return <div className={'tab1'}>
-        <h1 onClick={()=>React.$addPander()}>{ctx}</h1>
+        <h1>{ctx}</h1>
         <ListDiv number={10} />
     </div>
 }

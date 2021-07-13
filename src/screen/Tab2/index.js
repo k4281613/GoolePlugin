@@ -11,7 +11,7 @@ function Tab2() {
     }, [ctx])
 
     return <div className={'tab2'}>
-        <h1 onClick={()=>React.$addPander()}>{ctx}</h1>
+        <h1>{ctx}</h1>
         <ListDiv number={100} />
     </div>
 }

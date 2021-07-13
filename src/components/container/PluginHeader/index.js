@@ -4,10 +4,11 @@ import './index.scss'
 
 function PluginHeader(props) {
     let menus = [
-        {name: 'Tab1', path: '/Tab1'},
-        {name: 'Tab2', path: '/Tab2'},
+        {name: 'Tab1', path: '/tab1'},
+        {name: 'Tab2', path: '/tab2'},
+        {name: 'Chrome', path: '/chrome'},
     ]
-    const [actived, setActived] = useState('/Tab1');
+    const [actived, setActived] = useState('/tab1');
 
     useEffect(() => {
         props.history.replace(actived)

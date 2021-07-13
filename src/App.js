@@ -2,6 +2,7 @@ import './App.scss';
 import {HashRouter, Route, Switch,useHistory} from 'react-router-dom'
 import Tab1 from './screen/Tab1/index'
 import Tab2 from './screen/Tab2/index'
+import Chrome from './screen/Chrome/index'
 import PluginHeader from './components/container/PluginHeader'
 import React, {useEffect} from 'react'
 function App() {
@@ -16,6 +17,7 @@ function App() {
                 <Switch>
                     <Route component={Tab1} path="/tab1" exact/>
                     <Route component={Tab2} path='/tab2'/>
+                    <Route component={Chrome} path='/chrome'/>
                 </Switch>
             </HashRouter>
         </div>

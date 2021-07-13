@@ -9,8 +9,10 @@
     "default_title": "MyChromeExt",
     "default_popup": "index.html"
   },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'",
   "permissions": [
-    "tabs"
+    "tabs",
+    "notifications"
   ],
   "background": {
     "scripts": ["background.js"]
