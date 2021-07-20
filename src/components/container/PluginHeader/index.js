@@ -8,7 +8,7 @@ function PluginHeader(props) {
         {name: 'Tab2', path: '/tab2'},
         {name: 'Chrome', path: '/chrome'},
     ]
-    const [actived, setActived] = useState('/tab1');
+    const [actived, setActived] = useState('/chrome');
 
     useEffect(() => {
         props.history.replace(actived)

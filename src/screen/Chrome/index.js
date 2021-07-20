@@ -1,41 +1,37 @@
-import React, {useEffect, useState} from 'react'
-import { Button } from 'antd';
+import React from 'react'
+import ChromeStorage from '../../components/smart/Chrome/ChromeStorage.js'
+import AxiosCorsTest from '../../components/smart/Chrome/AxiosCorsTest.js'
+
 import './index.scss'
 
 function Chrome() {
-    const buttonGroup=[{name:'Runtime',children:['getBackgroundPage','ma']}];
-    const [count, setCount] = useState(0);
-    useEffect(() => {
-        return () => {
-        }
-    });
-    const addEventListenChrome=(pander,children)=>{
-        pander=eval(pander);
-        let obj=new pander();
-        const fun=obj[children];
-        fun()
-    }
-    function Runtime() {
-        this.getBackgroundPage=function () {
-            chrome.runtime.getBackgroundPage(Window => {
-                console.log(Window)
-            })
-        }
-        this.ma=function () {
-            console.log(chrome.runtime.ma)
+    function Notific() {
+        this.notifications = function () {
+            React.$chrome.notifications.create(null, {
+                type: 'basic',
+                iconUrl: 'logo192.png',
+                title: '这是标题',
+                message: '您刚才点击了自定义右键菜单！'
+            });
         }
     }
+
     //定义按钮元素
-    const buttonDom=buttonGroup.map(item=>{
-        item.children=item.children.map(citem=> <li key={citem} className={'chromeBtnCon'}><Button onClick={()=>addEventListenChrome(item.name,citem)}>{citem}</Button></li>)
-        return <div key={item.name}>
-            <h2>{item.name}</h2>
-            <ul className={'display_flex'}>{item.children}</ul>
-        </div>
-    })
-    return <div  className={'chrome'}>
-        <h1>谷歌插件</h1>
-        <div>{buttonDom}</div>
+    return <div className={'chrome'}>
+
+        <section>
+            <h1>谷歌插件</h1>
+            <div className={'chromectx'}>
+                <ChromeStorage />
+            </div>
+        </section>
+
+        <section>
+            <h1>跨域请求</h1>
+            <div className={'display_flex'}>
+                <AxiosCorsTest />
+            </div>
+        </section>
     </div>
 
 }

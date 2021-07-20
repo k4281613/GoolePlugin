@@ -1,29 +1,16 @@
-export function add(value) {
-    value = Number(value) < 10 ? '0' + value : value;
-    return value
-}
-
-export function addPander() {
-    let divs = document.getElementsByTagName('div');
+function addPander() {
+    let divs = $('img');
     Object.keys(divs).forEach(async key => {
-        const AppLogo = divs[key].getElementsByClassName('App-logo');
-        if (AppLogo.length) {
-            AppLogo[0].style.filter = `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`;
-            return;
-        }
-        if (divs[key].children.length) return;
-        divs[key].style.position = 'relative';
-        let pander = document.createElement('img');
-        pander.src = 'http://qvwp3pxkj.hn-bkt.clouddn.com/pander.gif';
-        pander.alt = '熊猫烧香';
-        pander.setAttribute('class', 'App-logo position_center');
-        pander.style.filter = `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`;
-        divs[key].innerHTML = '';
-        divs[key].appendChild(pander);
+        // divs[key].style.position = 'relative';
+        divs[key].src = 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/baike/g=0;w=268/sign=eb0331827e3e6709ae0040f44cfaad0b/7acb0a46f21fbe0927e60eb16a600c338644addf.jpg';
+        divs[key].alt = '熊猫烧香';
+        $(divs[key]).addClass("pander");
+        $(divs[key]).addClass("position_center");
+        $(divs[key]).css("filter", `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`);
     })
 }
 
-export function showIcon() {
+function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
         if (eClass === 'App-icon') {
@@ -31,6 +18,8 @@ export function showIcon() {
         }
         //生成悬浮icon
         if (window.getSelection().toString().length > 1) {
+            console.log(window.getSelection().toString())
+
             const isExistIcon = document.getElementsByClassName('App-icon');
             if (isExistIcon.length) document.body.removeChild(isExistIcon[0]);
             let icon = document.createElement('img');
@@ -46,8 +35,13 @@ export function showIcon() {
                 e.target.parentNode.removeChild(e.target);
             })
             document.body.appendChild(icon);
+            console.log(window.getSelection().toString(),icon)
         }
     })
 }
 
-
+document.addEventListener('DOMContentLoaded', function()
+{
+    console.log('我注入成功了！');
+    showIcon();
+});

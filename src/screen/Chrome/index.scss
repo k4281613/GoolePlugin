@@ -1,12 +1,24 @@
 .chrome{
   padding:0 15px 15px 15px;
+  input{
+    width:150px;
+  }
+
   h1,h2{
     color: white;
   }
   h2{
     text-align: left;
   }
-  .chromeBtnCon{
-    margin: 10px 15px 10px 0;
+  .chromeBtnCon li{
+    margin: 10px 15px 15px 0;
+    line-height: 16px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    &>*{
+      margin: auto 5px;
+      white-space: nowrap;
+    }
   }
 }

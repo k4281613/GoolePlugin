@@ -15,9 +15,9 @@ function App() {
             <HashRouter history={history}>
                 <PluginHeader />
                 <Switch>
-                    <Route component={Tab1} path="/tab1" exact/>
+                    <Route component={Tab1} path="/tab1" />
                     <Route component={Tab2} path='/tab2'/>
-                    <Route component={Chrome} path='/chrome'/>
+                    <Route component={Chrome} path='/chrome'exact/>
                 </Switch>
             </HashRouter>
         </div>

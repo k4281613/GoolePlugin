@@ -18,28 +18,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.547588">
+    <splitter split-orientation="horizontal" split-proportion="0.5179455">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/package.json">
+            <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="81" selection-end-column="19" />
-                  <folding>
-                    <element signature="n#!!block;n#dependencies#0;n#!!top" />
-                    <element signature="n#!!block;n#browserslist#0;n#!!top" />
-                    <element signature="n#!!block;n#jest#0;n#!!top" />
-                  </folding>
+                <state relative-caret-position="1326">
+                  <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/build/manifest.json">
+            <entry file="file://$PROJECT_DIR$/public/background.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="286">
-                  <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+                <state relative-caret-position="390">
+                  <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/manifest.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="494">
+                  <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -48,14 +52,33 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/screen/Tab1/index.js">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screen/Chrome/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
+                <state relative-caret-position="442">
+                  <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
                   <folding>
-                    <element signature="e#0#47#0" expanded="true" />
+                    <element signature="e#0#25#0" expanded="true" />
+                    <element signature="n#!!block;n#Notific#0;n#!!block;n#Chrome#0" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/lib/helper.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="988">
+                  <caret line="38" column="48" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="48" />
                 </state>
               </provider>
             </entry>
@@ -68,8 +91,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="react-hook" />
         <option value="SCSS File" />
+        <option value="react-hook" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -87,9 +111,16 @@
       <find>编译</find>
       <find>env:</find>
       <find>EXTEND_ESLINT</find>
+      <find>$showIcon</find>
+      <find>syn</find>
+      <find>index</find>
+      <find>App-icon</find>
+      <find>-tip</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>local</replace>
+      <replace>stroageConstruct</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -104,9 +135,7 @@
         <option value="$PROJECT_DIR$/src/components/UI/ListDiv/index.scss" />
         <option value="$PROJECT_DIR$/src/asset/js/helper.js" />
         <option value="$PROJECT_DIR$/src/components/UI/ListDiv/index.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/background.js" />
-        <option value="$PROJECT_DIR$/src/lib/helper.js" />
         <option value="$PROJECT_DIR$/src/asset/css/reset.scss" />
         <option value="$PROJECT_DIR$/build/static/css/main.ae653b46.chunk.css" />
         <option value="$PROJECT_DIR$/src/index.css" />
@@ -119,21 +148,31 @@
         <option value="$PROJECT_DIR$/build/index.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/App.scss" />
-        <option value="$PROJECT_DIR$/src/components/container/PluginHeader/index.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/asset/css/main.scss" />
-        <option value="$PROJECT_DIR$/src/screen/Chrome/index.scss" />
-        <option value="$PROJECT_DIR$/src/screen/Chrome/index.js" />
-        <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/public/reset_index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/build/manifest.json" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/container/PluginHeader/index.js" />
+        <option value="$PROJECT_DIR$/src/screen/Chrome/index.scss" />
+        <option value="$PROJECT_DIR$/src/screen/Chrome/ChromeStorage.js" />
+        <option value="$PROJECT_DIR$/src/components/Smart/Chrome/ChromeStorage.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/lib/https.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/components/smart/Chrome/AxiosCorsTest.js" />
+        <option value="$PROJECT_DIR$/src/components/smart/Chrome/ChromeStorage.js" />
+        <option value="$PROJECT_DIR$/src/screen/Chrome/index.js" />
+        <option value="$PROJECT_DIR$/src/lib/helper.js" />
+        <option value="$PROJECT_DIR$/public/cts/content.css" />
+        <option value="$PROJECT_DIR$/public/cts/content_script.js" />
+        <option value="$PROJECT_DIR$/public/manifest.json" />
+        <option value="$PROJECT_DIR$/public/background.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="3" />
-    <option name="y" value="180" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -153,40 +192,37 @@
             <path>
               <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
               <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
               <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="cts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
               <item name="trans-text" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="smart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -196,8 +232,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts" />
-    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/cts" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -210,17 +246,19 @@
     <property name="ts.external.directory.path" value="F:\sofeware\WebStorm 2019.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\sofeware\project\trans-text\public\cts" />
+      <recent name="F:\sofeware\project\trans-text\src\components\Smart\Chrome" />
+      <recent name="F:\sofeware\project\trans-text\src\components\Smart" />
+      <recent name="F:\sofeware\project\trans-text\src\components" />
+      <recent name="F:\sofeware\project\trans-text\build" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\sofeware\project\trans-text\public\cts" />
+      <recent name="F:\sofeware\project\trans-text\src\screen\Chrome" />
       <recent name="F:\sofeware\project\trans-text\scripts" />
       <recent name="F:\sofeware\project\trans-text\build" />
       <recent name="F:\sofeware\project\trans-text\build\static" />
-      <recent name="F:\sofeware\project\trans-text\src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\sofeware\project\trans-text\build" />
-      <recent name="F:\sofeware\project\trans-text\public" />
-      <recent name="F:\sofeware\project\trans-text\src\lib" />
-      <recent name="F:\sofeware\project\trans-text\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -253,27 +291,42 @@
       <workItem from="1625795988079" duration="754000" />
       <workItem from="1625801139418" duration="9400000" />
       <workItem from="1626051599720" duration="21074000" />
-      <workItem from="1626138870420" duration="4283000" />
+      <workItem from="1626138870420" duration="18161000" />
+      <workItem from="1626311639070" duration="5669000" />
+      <workItem from="1626320439229" duration="7712000" />
+      <workItem from="1626397722811" duration="8342000" />
+      <workItem from="1626657131773" duration="18915000" />
+      <workItem from="1626743541205" duration="171000" />
+      <workItem from="1626758654930" duration="5833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86777000" />
+    <option name="totallyTimeSpent" value="147297000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19178082" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21285564" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="找到" order="0" weight="0.32900432" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="运行" order="3" weight="0.32900432" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.17424242" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" visible="true" weight="0.16666667" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50052685" side_tool="true" weight="0.26406926" />
       <window_info anchor="bottom" id="调试" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
@@ -281,7 +334,7 @@
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="TODO" order="13" weight="0.32900432" />
       <window_info anchor="bottom" id="TypeScript" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -327,71 +380,19 @@
           <line>113</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/screen/Tab1/index.js</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/favicon.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/static/js/runtime-main.33dd98a7.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/static/js/runtime-main.33dd98a7.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret column="570" selection-start-column="570" selection-end-column="570" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/static/js/2.68eb828f.chunk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="913">
-          <caret line="2" column="44" lean-forward="true" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/插件/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/static/js/main.53ee48fd.chunk.js.map" />
-    <entry file="file://$PROJECT_DIR$/build/static/js/main.53ee48fd.chunk.js" />
-    <entry file="file://$PROJECT_DIR$/yarn-error.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/[A[A.pub">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="81" column="20" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/[A[A">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/build/static/css/main.ae653b46.chunk.css" />
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/asset/css/reset.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -402,24 +403,10 @@
     <entry file="file://$PROJECT_DIR$/config/modules.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-dev-utils/checkRequiredFiles.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/paths.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -473,32 +460,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="e#2710#4145#0" />
-            <element signature="e#4162#4730#0" />
-            <element signature="e#4755#4869#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screen/Tab1/index.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/container/PluginHeader/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -535,65 +500,6 @@
     <entry file="file://$PROJECT_DIR$/public/robots.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8268">
-          <caret line="739" column="22" selection-start-line="739" selection-start-column="22" selection-end-line="739" selection-end-column="22" />
-          <folding>
-            <element signature="e#4137#6139#0" />
-            <element signature="e#6456#6507#0" />
-            <element signature="e#6660#8018#0" />
-            <element signature="e#8059#9863#0" />
-            <element signature="e#9883#13111#0" />
-            <element signature="e#13126#15343#0" />
-            <element signature="e#15364#15572#0" />
-            <element signature="e#24070#32179#0" />
-            <element signature="e#32361#32543#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screen/Chrome/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screen/Chrome/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screen/Tab1/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="18" selection-start-line="11" selection-start-column="14" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/reset_index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -605,16 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,17 +528,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/build/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="442">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/container/PluginHeader/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="16" column="156" lean-forward="true" selection-start-line="16" selection-start-column="156" selection-end-line="16" selection-end-column="156" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="301">
+            <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screen/Tab1/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screen/Chrome/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="81" selection-end-column="19" />
+        <state relative-caret-position="624">
+          <caret line="106" column="4" lean-forward="true" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
           <folding>
             <element signature="n#!!block;n#dependencies#0;n#!!top" />
             <element signature="n#!!block;n#browserslist#0;n#!!top" />
@@ -651,10 +584,170 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/manifest.json">
+    <entry file="file://$PROJECT_DIR$/scripts/build.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+        <state relative-caret-position="186">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="54" />
+          <folding>
+            <element signature="e#2710#4145#0" />
+            <element signature="e#4162#4730#0" />
+            <element signature="e#4755#4869#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/paths.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="558" column="14" lean-forward="true" selection-start-line="558" selection-start-column="14" selection-end-line="558" selection-end-column="14" />
+          <folding>
+            <element signature="e#4137#6139#0" />
+            <element signature="e#6456#6507#0" />
+            <element signature="e#6660#8018#0" />
+            <element signature="e#8059#9863#0" />
+            <element signature="e#9883#13111#0" />
+            <element signature="e#13126#15343#0" />
+            <element signature="e#15364#15572#0" />
+            <element signature="e#24360#24804#0" />
+            <element signature="e#32361#32543#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/smart/Chrome/ChromeStorage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#526#1569#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/axios/dist/axios.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cts/axios.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/https.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/smart/Chrome/AxiosCorsTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screen/Chrome/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="n#!!block;n#Notific#0;n#!!block;n#Chrome#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>

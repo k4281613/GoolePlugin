@@ -1,0 +1,19 @@
+.pander {
+    height: 5vmin !important;
+    width: 5vmin !important;
+    cursor: pointer;
+    transition: 2s all !important;
+}
+
+.pander:hover {
+    transform: scale(10);
+    transform-origin: center;
+    z-index: 9999;
+}
+
+.App-icon {
+    height: 5vmin;
+    z-index: 99999;
+    cursor: pointer;
+    position: fixed;
+}

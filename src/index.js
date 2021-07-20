@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addPander,showIcon} from './lib/helper'
-React.$addPander=addPander;
-React.$showIcon=showIcon;
+import {addPander, showIcon} from './lib/helper'
+import axios from './lib/https'
+import sinonChrome from 'sinon-chrome'
+
+React.$addPander = addPander;
+React.$showIcon = showIcon;
+React.$chrome = process.env.NODE_ENV === "development" ? sinonChrome : chrome;
+React.axios = axios;
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
