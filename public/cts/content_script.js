@@ -18,8 +18,6 @@ function showIcon() {
         }
         //生成悬浮icon
         if (window.getSelection().toString().length > 1) {
-            console.log(window.getSelection().toString())
-
             const isExistIcon = document.getElementsByClassName('App-icon');
             if (isExistIcon.length) document.body.removeChild(isExistIcon[0]);
             let icon = document.createElement('img');
@@ -35,7 +33,9 @@ function showIcon() {
                 e.target.parentNode.removeChild(e.target);
             })
             document.body.appendChild(icon);
-            console.log(window.getSelection().toString(),icon)
+        }else {
+            const isExistIcon = document.getElementsByClassName('App-icon');
+            if (isExistIcon.length) document.body.removeChild(isExistIcon[0]);
         }
     })
 }
