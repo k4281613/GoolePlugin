@@ -76,3 +76,10 @@ function openUrlCurrentTab(url)
         chrome.tabs.update(tabId, {url: url});
     })
 }
+
+/*------------------------通讯--------------------*/
+async function getBimMsg(msg){
+    console.log(msg,'尝试发送请求');
+    let res= await axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
+    console.log('请求结果',res);
+}

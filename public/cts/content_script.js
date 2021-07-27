@@ -1,3 +1,4 @@
+
 function addPander() {
     let divs = $('img');
     Object.keys(divs).forEach(async key => {
@@ -9,7 +10,11 @@ function addPander() {
         $(divs[key]).css("filter", `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`);
     })
 }
-
+//注入的JS请求，会发生跨域，或者被拦截
+function getBimMsg(){
+    let res= axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
+    console.log(res)
+}
 function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
@@ -30,18 +35,34 @@ function showIcon() {
             //icon绑定事件
             icon.addEventListener('click', (e) => {
                 addPander();
+                getBimMsg();
                 e.target.parentNode.removeChild(e.target);
+
             })
             document.body.appendChild(icon);
-        }else {
+        } else {
             const isExistIcon = document.getElementsByClassName('App-icon');
             if (isExistIcon.length) document.body.removeChild(isExistIcon[0]);
         }
     })
 }
 
-document.addEventListener('DOMContentLoaded', function()
-{
+document.addEventListener('DOMContentLoaded', function () {
     console.log('我注入成功了！');
     showIcon();
 });
+
+function setZeroOpacity(dom){
+    dom.each((i,e)=>{
+        $(e).css('opacity',0)
+    })
+}
+window.onload = () => {
+    if (~window.location.href.indexOf('youtube')) {
+        document.title = 'JSdom';
+        setZeroOpacity($('video'))
+        setZeroOpacity($('img'))
+        setZeroOpacity($('.ytd-topbar-logo-renderer'))
+    }
+
+}

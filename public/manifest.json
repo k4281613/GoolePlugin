@@ -24,10 +24,11 @@
     "cookies",
     "storage",
     "http://v.juhe.cn/",
+    "http://bi.camelwifi.cn/",
     "contextMenus"
   ],
   "omnibox": { "keyword" : "test" },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["cts/axios.min.js","background.js"]
   }
 }

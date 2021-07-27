@@ -7,6 +7,10 @@ function AxiosCorsTest() {
         let data=await axios.get(baseURL+'/toutiao/index?key=131e6bf62767236380d244d7cceef40d');
         console.log(data)
     };
+    let getBimMsg=async ()=>{
+        let res= await axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
+        console.log(res)
+    }
     let postTouTiao = async () => {
         let data=await axios.post(baseURL+'/toutiao/index',{
             key:'131e6bf62767236380d244d7cceef40d'
@@ -16,6 +20,7 @@ function AxiosCorsTest() {
     return <>
         <Button onClick={()=>getTouTiao()}>测试get请求</Button>
         <Button style={{marginLeft:'10px'}} onClick={()=>postTouTiao()} >测试post请求</Button>
+        <Button style={{marginLeft:'10px'}} onClick={()=>getBimMsg()} >测试BI请求</Button>
     </>
 }
 
