@@ -83,3 +83,20 @@ async function getBimMsg(msg){
     let res= await axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
     console.log('请求结果',res);
 }
+chrome.runtime.onMessage.addListener(async (req, sender, sendResponse) => {
+    console.log('我是background，我接收了来自 content.js的消息：', req)
+    sendResponse('哈哈哈，成功了')
+    /*const tabId = await getCurrentTabId()
+    // 在背景页面发送消息，需要当前 tabID
+    chrome.tabs.sendMessage(tabId, '我是background，我在发送消息', function (res) {
+        console.log('background：', res)
+    });*/
+    if(req.msg==='BI')getBimMsg('收到了content的消息')
+})
+function getCurrentTabId() {
+    return new Promise((resolve, reject) => {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            resolve(tabs.length ? tabs[0].id : null)
+        });
+    })
+}

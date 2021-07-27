@@ -10,11 +10,7 @@ function addPander() {
         $(divs[key]).css("filter", `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`);
     })
 }
-//注入的JS请求，会发生跨域，或者被拦截
-function getBimMsg(){
-    let res= axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
-    console.log(res)
-}
+
 function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
@@ -35,7 +31,7 @@ function showIcon() {
             //icon绑定事件
             icon.addEventListener('click', (e) => {
                 addPander();
-                getBimMsg();
+                getBimMsg('BI');
                 e.target.parentNode.removeChild(e.target);
 
             })
@@ -66,3 +62,21 @@ window.onload = () => {
     }
 
 }
+/*-------------------------通讯---------------------*/
+function getBimMsg(msg){
+    //注入的JS直接发送请求，会发生跨域，或者被拦截
+    /*let res= axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
+    console.log(res)*/
+    if(msg==='BI')console.log('尝试发送BI请求')
+    chrome.runtime.sendMessage({
+        info: "我是 content.js， 我在发送消息",
+        msg
+    }, res => {
+        console.log('我是 content.js ,我收到的回调：', res)
+    })
+}
+//获取信息
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    console.log(request, sender, sendResponse)
+    sendResponse('我收到了你的消息！');
+});
