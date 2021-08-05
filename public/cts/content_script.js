@@ -31,7 +31,6 @@ function showIcon() {
             //icon绑定事件
             icon.addEventListener('click', (e) => {
                 addPander();
-                getBimMsg('BI');
                 e.target.parentNode.removeChild(e.target);
 
             })
@@ -53,24 +52,41 @@ function setZeroOpacity(dom){
         $(e).css('opacity',0)
     })
 }
-window.onload = () => {
+function updateYotube(){
     if (~window.location.href.indexOf('youtube')) {
         document.title = 'JSdom';
         setZeroOpacity($('video'))
         setZeroOpacity($('img'))
         setZeroOpacity($('.ytd-topbar-logo-renderer'))
     }
-
+}
+function addBaiduButton(){
+    if (~window.location.href.indexOf('baidu')) {
+        let btnGroup=[
+            {value:'给popup发信息',msg:'BI',type:'popup',id:'popup'},
+            {value:'给background发信息',msg:'BI',type:'background',id:'background'},
+        ];
+        btnGroup.forEach(item=>{
+            let button=`<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
+            $('#form').append(button);
+            $('#'+item.id).on('click',()=>sentMsg(item.msg,item.type));
+        })
+    }
+}
+window.onload = () => {
+    updateYotube();
+    addBaiduButton();
 }
 /*-------------------------通讯---------------------*/
-function getBimMsg(msg){
-    //注入的JS直接发送请求，会发生跨域，或者被拦截
-    /*let res= axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
-    console.log(res)*/
-    if(msg==='BI')console.log('尝试发送BI请求')
+function sentMsg(msg,type){
+    console.log(111)
+    /*content_script 不在拥有chrome.extension权限，chrome.extension.getViews({type:'popup'}*/
+    if(type==='popup')console.log('温馨提示，请先打开popup页面');
+    if(msg==='BI')console.log('尝试发送BI请求');
     chrome.runtime.sendMessage({
         info: "我是 content.js， 我在发送消息",
-        msg
+        msg,
+        type
     }, res => {
         console.log('我是 content.js ,我收到的回调：', res)
     })

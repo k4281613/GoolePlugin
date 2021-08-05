@@ -16,6 +16,7 @@ function Extension() {
         <Button onClick={() => getExtension()}>获取extension信息</Button>
         <Button onClick={() => getPopup()}>打开popup页面</Button>
         <Button onClick={() => getBackground()}>打开默认的背景页</Button>
+        备注：这里打开的popup页面不能对conten_script进行通讯
     </>
 }
 

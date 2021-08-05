@@ -7,7 +7,7 @@ function NotificChrome() {
         try {
             React.$chrome.notifications.create(null, {
                 type: 'basic',
-                // iconUrl: 'logo192.png',
+                iconUrl: 'logo192.png',
                 title: '这是标题',
                 message: '您刚才点击了自定义右键菜单！'
             });
