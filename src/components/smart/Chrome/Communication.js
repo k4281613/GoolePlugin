@@ -7,7 +7,7 @@ import axios from "../../../lib/https";
 function Communication() {
     let getCurrentTabId = () => {
         return new Promise((resolve, reject) => {
-            chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+            React.$chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                 resolve(tabs.length ? tabs[0].id : null)
             });
         })
@@ -16,7 +16,7 @@ function Communication() {
         //popup和background只有一个能回信息，其中一个回了，其他不会回
         const tabId = await getCurrentTabId();
         // 在背景页面发送消息，需要当前 tabID
-        chrome.tabs.sendMessage(tabId, '我是popup，我在发送消息', function (res) {
+        React.$chrome.tabs.sendMessage(tabId, '我是popup，我在发送消息', function (res) {
             console.log('popup：', res)
         });
     };

@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('我注入成功了！');
+    showIcon();
+});
 
 function addPander() {
     let divs = $('img');
@@ -42,17 +46,13 @@ function showIcon() {
     })
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('我注入成功了！');
-    showIcon();
-});
-
-function setZeroOpacity(dom){
-    dom.each((i,e)=>{
-        $(e).css('opacity',0)
+function setZeroOpacity(dom) {
+    dom.each((i, e) => {
+        $(e).css('opacity', 0)
     })
 }
-function updateYotube(){
+
+function updateYotube() {
     if (~window.location.href.indexOf('youtube')) {
         document.title = 'JSdom';
         setZeroOpacity($('video'))
@@ -60,39 +60,88 @@ function updateYotube(){
         setZeroOpacity($('.ytd-topbar-logo-renderer'))
     }
 }
-function addBaiduButton(){
+
+function addBaiduButton() {
     if (~window.location.href.indexOf('baidu')) {
-        let btnGroup=[
-            {value:'给popup发信息',msg:'BI',type:'popup',id:'popup'},
-            {value:'给background发信息',msg:'BI',type:'background',id:'background'},
+        let btnGroup = [
+            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
+            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
         ];
-        btnGroup.forEach(item=>{
-            let button=`<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
+        btnGroup.forEach(item => {
+            let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
             $('#form').append(button);
-            $('#'+item.id).on('click',()=>sentMsg(item.msg,item.type));
+            $('#' + item.id).on('click', () => sentMsg(item.msg, item.type));
         })
     }
 }
-window.onload = () => {
-    updateYotube();
-    addBaiduButton();
-}
+
 /*-------------------------通讯---------------------*/
-function sentMsg(msg,type){
-    console.log(111)
+function sentMsg(msg, type) {
     /*content_script 不在拥有chrome.extension权限，chrome.extension.getViews({type:'popup'}*/
-    if(type==='popup')console.log('温馨提示，请先打开popup页面');
-    if(msg==='BI')console.log('尝试发送BI请求');
+    if (type === 'popup') console.log('温馨提示，请先打开popup页面');
+    if (msg === 'BI') console.log('尝试发送BI请求');
     chrome.runtime.sendMessage({
         info: "我是 content.js， 我在发送消息",
         msg,
         type
     }, res => {
-        console.log('我是 content.js ,我收到的回调：', res)
+        console.log('我收到的回调：', res)
     })
 }
+
 //获取信息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    console.log(request, sender, sendResponse)
-    sendResponse('我收到了你的消息！');
+    console.log(request/*, sender, sendResponse*/);
+    if (request.type === 'tmall') {
+        sendResponse('开始获取数据');
+        getTmall();
+        return
+    }
+    sendResponse('content_script收到了你的消息！');
 });
+
+/*天猫例子*/
+function getTmall() {
+    if (~window.location.href.indexOf('tmall')) {
+        let dom = $('.grid-nosku').children('.product');
+        let arr = [];
+        dom.each((index, item) => {
+            let children = $(item).children('.product-iWrap');
+            let obj = {};
+            obj.url = $(children).children('.productImg-wrap').children('a').attr('href');
+            obj.pic_url = $(children).children('.productImg-wrap').children('a').children('img').attr('src');
+            obj.price = $(children).children('.productPrice').children('em').attr('title');
+            obj.title = $(children).children('.productTitle').children('a').attr('title');
+            obj.shop = $(children).children('.productShop').children('a').text();
+            obj.shop_url = $(children).children('.productShop').children('a').attr('href');
+            obj.productStatus = $(children).children('.productStatus').text();
+            arr.push(obj)
+        })
+        sentMsg({data: arr}, 'background');
+        let btn=document.querySelector('.ui-page-next');
+        setTimeout(()=> {
+            if ($('.ui-page-cur').text() !== '10' && btn) {
+                $.cookie('downTmall', true);
+                let timer = setInterval(() => {
+                    let html = document.querySelector('html');
+                    if (html.scrollTop < html.scrollHeight-2000) {
+                        html.scrollTop = html.scrollTop + 10;
+                        console.log(html.scrollTop,html.scrollHeight)
+                    } else {
+                        clearInterval(timer)
+                        let time=Math.random()*1000;
+                        setTimeout(()=>{btn.click();},time)
+                    }
+                }, 10)
+            } else $.cookie('downTmall', false);
+        })
+    }
+}
+
+window.onload = () => {
+    updateYotube();
+    addBaiduButton();
+    let cookie = $.cookie('downTmall');
+    console.log(cookie)
+    if (cookie === 'true') getTmall()
+}

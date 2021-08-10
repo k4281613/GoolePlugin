@@ -79,16 +79,28 @@ async function getBimMsg(msg) {
     let res = await axios.get('http://bi.camelwifi.cn/CW_API/PlatformAimsPay');
     console.log('请求结果', res);
 }
-
+let data=[];
+//监听消息
 chrome.runtime.onMessage.addListener(async (req, sender, sendResponse) => {
     if (req.type === 'background') {
-        console.log('我是background，我接收了来自 content.js的消息：', req)
-        sendResponse('哈哈哈，background成功了')
+        sendResponse('background收到了消息')
         if (req.msg === 'BI') getBimMsg('收到了content的消息');
+        if(req.msg.data.length){
+            callbackMsg('background给你回复信息');
+            data=[...data,...req.msg.data];
+            let map = new Map();
+            data=data.filter(item=>!map.has(JSON.stringify(item)) && map.set(JSON.stringify(item),1))
+            return
+        }
         sendMessage();
     }
 })
-
+async function callbackMsg(msg){
+    const tabId = await getCurrentTabId();
+    chrome.tabs.sendMessage(tabId,msg,function (res) {
+        console.log('background收到了回调:'+res)
+    })
+}
 async function sendMessage() {
     //popup和background只有一个能回信息，其中一个回了，其他不会回
     const tabId = await getCurrentTabId()

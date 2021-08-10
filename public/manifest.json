@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "matches":["<all_urls>"],
-      "js": ["cts/jquery-3.5.1.min.js","cts/content_script.js","cts/axios.min.js"],
+      "js": ["cts/jquery-3.5.1.min.js","cts/jquery.cookie.js","cts/content_script.js","cts/axios.min.js"],
       "css": ["cts/content.css"],
       "run_at": "document_start"
     }
@@ -23,12 +23,13 @@
     "notifications",
     "cookies",
     "storage",
+    "<all_urls>",
     "http://v.juhe.cn/",
     "http://bi.camelwifi.cn/",
     "contextMenus"
   ],
   "omnibox": { "keyword" : "test" },
   "background": {
-    "scripts": ["cts/axios.min.js","background.js"]
+    "scripts": ["cts/jquery-3.5.1.min.js","cts/jquery.cookie.js","cts/axios.min.js","background.js"]
   }
 }
