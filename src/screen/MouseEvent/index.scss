@@ -1,0 +1,57 @@
+.mousevent {
+  input {
+    width: 150px;
+  }
+
+  .ctx {
+    position: relative;
+    margin-top: 30px;
+
+    h2 {
+      width: 200px;
+      padding-bottom: 5px;
+      cursor: pointer;
+      color: white;
+      border-bottom: 2px solid white;
+      left: 50%;
+      position: relative;
+      transform: translateX(-50%);
+      margin-bottom: 10px;
+    }
+
+    .display_flex {
+      height: 150px;
+      .goods {
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        background: red;
+        position: absolute;
+        left: 0;
+        z-index: +9999;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        left: 800px;
+        border: 1px solid #1cb7fd;
+      }
+      .firstbox{
+        left: 10px;
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        box-sizing: content-box;
+      }
+      .reset{
+        position: absolute;
+        left: 1000px;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+}

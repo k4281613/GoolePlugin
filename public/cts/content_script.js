@@ -54,7 +54,9 @@ function setZeroOpacity(dom) {
 
 function updateYotube() {
     if (~window.location.href.indexOf('youtube')) {
+        console.log(document.title)
         document.title = 'JSdom';
+        console.log(document.title)
         setZeroOpacity($('video'))
         setZeroOpacity($('img'))
         setZeroOpacity($('.ytd-topbar-logo-renderer'))
@@ -138,9 +140,50 @@ function getTmall() {
     }
 }
 
+/*知乎*/
+function deleteAdvert() {
+    $('.TopstoryItem--advertCard').remove()
+}
+function delVideo(){
+    let TopstoryItem=$('.TopstoryItem');
+    TopstoryItem.each((i,e)=>{
+        let video=$(e).find('.ZVideoItem');
+        let VideoAnswerPlayer=$(e).find('.VideoAnswerPlayer');
+        let ZVideoItemVideo=$(e).find('.ZVideoItem-player');
+        let ZVideoItem=$(e).find('.ZVideoItem');
+        if(video.length || VideoAnswerPlayer.length || ZVideoItem.length || ZVideoItemVideo.length)$(e).remove();
+    })
+}
+function resetZhihu(){
+    if (~window.location.href.indexOf('zhihu')) {
+        let MutationObserver = window.MutationObserver;
+        let ele=document.getElementById('TopstoryContent');
+        $('.TopstoryItem--advertCard').remove()
+        delVideo();
+        //监听容器高度
+        let watchFn=new MutationObserver((mutations)=>{
+            /*console.log(mutations,111)
+            let height=ele.offsetHeight;
+            console.log(height)*/
+            $('.TopstoryItem--advertCard').remove()
+            delVideo();
+        })
+        watchFn.observe(ele, {
+            // childList: true, // 子节点的变动（新增、删除或者更改）
+            attributes: true, // 属性的变动
+            // characterData: true, // 节点内容或节点文本的变动
+            subtree: true, // 是否将观察器应用于该节点的所有后代节点
+            attributeFilter: ['class', 'style'], // 观察特定属性
+            attributeOldValue: true, // 观察 attributes 变动时，是否需要记录变动前的属性值
+            characterDataOldValue: true // 观察 characterData 变动，是否需要记录变动前的值
+        })
+    }
+}
+
 window.onload = () => {
     updateYotube();
     addBaiduButton();
+    resetZhihu();
     let cookie = $.cookie('downTmall');
     console.log(cookie)
     if (cookie === 'true') getTmall()
