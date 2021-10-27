@@ -69,6 +69,8 @@ function removeIcon() {
     }
 }
 
+let interval;
+
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
@@ -76,7 +78,7 @@ function xiaohuangdou() {
 
     console.log(_nodes);//不含自身
     console.log(_nodes2);//包含自身
-    setInterval(remove_nodes, 50);
+    interval = setInterval(remove_nodes, 10);
 }
 
 let _nodes = new Array();
@@ -116,6 +118,10 @@ function dg2(nodes, y_in_dex) {
 function remove_nodes() {
     _nodes2[0].remove();
     _nodes2.shift();
+    if (_nodes2.length == 0) {
+        clearInterval(interval);
+        console.log('删除完成');
+    }
 }
 
 function setZeroOpacity(dom) {
