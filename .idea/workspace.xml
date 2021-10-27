@@ -18,45 +18,75 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/manifest.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-              <folding>
-                <element signature="n#!!block;n#addPander#0" />
-                <element signature="n#!!block;n#showIcon#0" />
-                <element signature="n#!!block;n#setZeroOpacity#0" />
-                <element signature="n#!!block;n#addBaiduButton#0" />
-                <element signature="n#!!block;n#sentMsg#0" />
-                <element signature="e#3415#3623#0" />
-                <element signature="n#!!block;n#getTmall#0" />
-                <element signature="e#3821#4584#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/reset_index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/manifest.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="540">
+                  <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+                  <folding>
+                    <element signature="n#!!block;n#addPander#0" />
+                    <element signature="e#1455#1593#0" />
+                    <element signature="n#!!block;n#removeIcon#0" />
+                    <element signature="n#!!block;n#dg2#0" />
+                    <element signature="n#!!block;n#setZeroOpacity#0" />
+                    <element signature="n#!!block;n#updateYotube#0" />
+                    <element signature="n#!!block;n#addBaiduButton#0" />
+                    <element signature="n#!!block;n#sentMsg#0" />
+                    <element signature="e#3415#3623#0" />
+                    <element signature="n#!!block;n#getTmall#0" />
+                    <element signature="e#3821#4584#0" />
+                    <element signature="n#!!block;n#resetZhihu#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="297">
+                  <caret line="47" selection-start-line="47" selection-end-line="47" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/reset_index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="279">
+                  <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="47" selection-start-line="47" selection-end-line="47" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -124,7 +154,6 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/App.scss" />
         <option value="$PROJECT_DIR$/src/asset/css/main.scss" />
-        <option value="$PROJECT_DIR$/public/reset_index.js" />
         <option value="$PROJECT_DIR$/build/manifest.json" />
         <option value="$PROJECT_DIR$/src/screen/Chrome/ChromeStorage.js" />
         <option value="$PROJECT_DIR$/src/components/Smart/Chrome/ChromeStorage.js" />
@@ -138,7 +167,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/setupProxy.js" />
         <option value="$PROJECT_DIR$/src/components/smart/Chrome/AxiosCorsTest.js" />
-        <option value="$PROJECT_DIR$/public/cts/content.css" />
         <option value="$PROJECT_DIR$/src/components/smart/Chrome/NotificChrome.js" />
         <option value="$PROJECT_DIR$/src/components/smart/Chrome/Extension.js" />
         <option value="$PROJECT_DIR$/src/components/container/PluginHeader/index.scss" />
@@ -153,6 +181,8 @@
         <option value="$PROJECT_DIR$/src/screen/Chrome/index.scss" />
         <option value="$PROJECT_DIR$/src/screen/MouseEvent/index.scss" />
         <option value="$PROJECT_DIR$/src/screen/MouseEvent/index.js" />
+        <option value="$PROJECT_DIR$/public/reset_index.js" />
+        <option value="$PROJECT_DIR$/public/cts/content.css" />
         <option value="$PROJECT_DIR$/public/cts/content_script.js" />
       </list>
     </option>
@@ -331,12 +361,12 @@
       <workItem from="1634610861490" duration="780000" />
       <workItem from="1634629672448" duration="9023000" />
       <workItem from="1635238430292" duration="2211000" />
-      <workItem from="1635314213883" duration="606000" />
+      <workItem from="1635314213883" duration="11094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276501000" />
+    <option name="totallyTimeSpent" value="286989000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -351,14 +381,14 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21285564" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.21285564" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="找到" order="0" weight="0.32900432" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="运行" order="3" weight="0.32900432" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" visible="true" weight="0.52979416" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" visible="true" weight="0.29035753" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50052685" side_tool="true" weight="0.26406926" />
       <window_info anchor="bottom" id="调试" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
@@ -431,7 +461,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/cts/content_script.js</url>
-          <line>178</line>
+          <line>248</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
@@ -733,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/cts/content.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/cts/jquery.cookie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -825,31 +848,42 @@
     <entry file="file://$PROJECT_DIR$/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!block;n#addPander#0" />
-            <element signature="n#!!block;n#showIcon#0" />
-            <element signature="n#!!block;n#setZeroOpacity#0" />
-            <element signature="n#!!block;n#addBaiduButton#0" />
-            <element signature="n#!!block;n#sentMsg#0" />
-            <element signature="e#3415#3623#0" />
-            <element signature="n#!!block;n#getTmall#0" />
-            <element signature="e#3821#4584#0" />
-          </folding>
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/reset_index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        <state relative-caret-position="279">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#addPander#0" />
+            <element signature="e#1455#1593#0" />
+            <element signature="n#!!block;n#removeIcon#0" />
+            <element signature="n#!!block;n#dg2#0" />
+            <element signature="n#!!block;n#setZeroOpacity#0" />
+            <element signature="n#!!block;n#updateYotube#0" />
+            <element signature="n#!!block;n#addBaiduButton#0" />
+            <element signature="n#!!block;n#sentMsg#0" />
+            <element signature="e#3415#3623#0" />
+            <element signature="n#!!block;n#getTmall#0" />
+            <element signature="e#3821#4584#0" />
+            <element signature="n#!!block;n#resetZhihu#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('我注入成功了！');
     showIcon();
 });
-
+/******************************注入熊猫***************************/
 function addPander() {
     let divs = $('img');
     Object.keys(divs).forEach(async key => {
@@ -24,6 +24,7 @@ function showIcon() {
         //生成悬浮icon
         if (window.getSelection().toString().length > 1) {
             removeIcon();
+           /**************** 注入熊猫***************/
             let icon = document.createElement('img');
             icon.src = 'https://wimg.588ku.com/gif620/20/07/06/16181476c32d1262a0d77a16ba9e4357.gif';
             icon.alt = '熊猫烧香';
@@ -39,6 +40,7 @@ function showIcon() {
 
             })
             document.body.appendChild(icon);
+            /**************** 注入贪吃人***************/
             let icon2 = document.createElement('div');
             icon2.innerHTML = `<div class="top"></div>
     <div class="bottom"></div>`;
@@ -69,61 +71,51 @@ function removeIcon() {
     }
 }
 
+/******************************贪吃的元素***************************/
 let interval;
-
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
-    dg2(bodys, 0);
-
-    console.log(_nodes);//不含自身
-    console.log(_nodes2);//包含自身
-    interval = setInterval(remove_nodes, 10);
+    // dg2(bodys, 0);
+    // console.log(_nodes);//不含自身
+    // console.log(_nodes2);//包含自身
+    interval = setInterval(remove_nodes, 100);
 }
 
-let _nodes = new Array();
+let _nodes = [];
 function dg(nodes) {
     let ns = nodes.children();
-    for (var i = 0; i < ns.length; i++) {
+    for (let i = 0; i < ns.length; i++) {
         dg(ns.eq(i));
         _nodes.push(ns.eq(i));
     }
 }
 
-let _nodes2 = new Array();
+let _nodes2 = [];
 function dg2(nodes, y_in_dex) {
     let ns = nodes.eq(y_in_dex).children();//获取节点下的子节点数组
-
-    if (ns.length > 0) {
-
-        let n = ns.eq(y_in_dex);//n是操作的节点 ns是节点数组
-
-        dg2(ns, 0);
-    }
-
-
+    if (ns.length > 0) dg2(ns, 0);
     let n2 = nodes.eq(y_in_dex);//n2是操作的节点 nodes是节点数组
     y_in_dex++;
-    if (nodes.length > y_in_dex) {
-
-        dg2(nodes, y_in_dex);
-    }
-
+    if (nodes.length > y_in_dex)dg2(nodes, y_in_dex);
     _nodes2.push(n2);
-
 }
 
-
-
 function remove_nodes() {
-    _nodes2[0].remove();
-    _nodes2.shift();
-    if (_nodes2.length == 0) {
+    let node=_nodes[0];
+    $(node)[0].innerHTML='<div class="processDiv"></div>';
+    console.log($(node)[0])
+    $(node)[0].style.background='red';
+    console.log($(node)[0]);
+    // _nodes[0].remove();
+    _nodes.shift();
+    if (_nodes.length === 0) {
         clearInterval(interval);
         console.log('删除完成');
     }
 }
 
+/*-------------------------过滤youtobe---------------------*/
 function setZeroOpacity(dom) {
     dom.each((i, e) => {
         $(e).css('opacity', 0)
@@ -141,6 +133,7 @@ function updateYotube() {
     }
 }
 
+/*-------------------------通讯---------------------*/
 function addBaiduButton() {
     if (~window.location.href.indexOf('baidu')) {
         let btnGroup = [
@@ -155,7 +148,6 @@ function addBaiduButton() {
     }
 }
 
-/*-------------------------通讯---------------------*/
 function sentMsg(msg, type) {
     /*content_script 不在拥有chrome.extension权限，chrome.extension.getViews({type:'popup'}*/
     if (type === 'popup') console.log('温馨提示，请先打开popup页面');
@@ -180,7 +172,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     sendResponse('content_script收到了你的消息！');
 });
 
-/*天猫例子*/
+/******************************天猫爬取广告***************************/
 function getTmall() {
     if (~window.location.href.indexOf('tmall')) {
         let dom = $('.grid-nosku').children('.product');
@@ -218,7 +210,7 @@ function getTmall() {
     }
 }
 
-/*知乎*/
+/******************************知乎过滤广告***************************/
 function deleteAdvert() {
     $('.TopstoryItem--advertCard').remove()
 }
