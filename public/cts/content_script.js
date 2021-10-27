@@ -18,13 +18,12 @@ function addPander() {
 function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
-        if (eClass === 'App-icon') {
+        if (eClass === 'App-icon' || eClass === 'top' || eClass === 'bottom') {
             return
         }
         //生成悬浮icon
         if (window.getSelection().toString().length > 1) {
-            const isExistIcon = document.getElementsByClassName('App-icon');
-            if (isExistIcon.length) document.body.removeChild(isExistIcon[0]);
+            removeIcon();
             let icon = document.createElement('img');
             icon.src = 'https://wimg.588ku.com/gif620/20/07/06/16181476c32d1262a0d77a16ba9e4357.gif';
             icon.alt = '熊猫烧香';
@@ -35,15 +34,88 @@ function showIcon() {
             //icon绑定事件
             icon.addEventListener('click', (e) => {
                 addPander();
-                e.target.parentNode.removeChild(e.target);
+                /*e.target.parentNode.removeChild(e.target);*/
+                removeIcon();
 
             })
             document.body.appendChild(icon);
+            let icon2 = document.createElement('div');
+            icon2.innerHTML = `<div class="top"></div>
+    <div class="bottom"></div>`;
+            icon2.alt = '小黄豆';
+            icon2.setAttribute('class', 'App-icon');
+            icon2.setAttribute('id', 'App-icon2');
+            icon2.style.left = e.clientX + 70 + 'px';
+            icon2.style.top = e.clientY - 10 + 'px';
+            //icon绑定事件
+            icon2.addEventListener('click', (e) => {
+                xiaohuangdou();
+                removeIcon();
+
+            })
+            document.body.appendChild(icon2);
         } else {
-            const isExistIcon = document.getElementsByClassName('App-icon');
-            if (isExistIcon.length) document.body.removeChild(isExistIcon[0]);
+            removeIcon();
         }
     })
+}
+
+function removeIcon() {
+    const isExistIcon = document.getElementsByClassName('App-icon');
+    if (isExistIcon.length) {
+        for (var i = 0, j = isExistIcon.length; i < j; j--) {
+            document.body.removeChild(isExistIcon[i]);
+        }
+    }
+}
+
+function xiaohuangdou() {
+    let bodys = $('body');
+    dg(bodys);
+    dg2(bodys, 0);
+
+    console.log(_nodes);//不含自身
+    console.log(_nodes2);//包含自身
+    setInterval(remove_nodes, 50);
+}
+
+let _nodes = new Array();
+function dg(nodes) {
+    let ns = nodes.children();
+    for (var i = 0; i < ns.length; i++) {
+        dg(ns.eq(i));
+        _nodes.push(ns.eq(i));
+    }
+}
+
+let _nodes2 = new Array();
+function dg2(nodes, y_in_dex) {
+    let ns = nodes.eq(y_in_dex).children();//获取节点下的子节点数组
+
+    if (ns.length > 0) {
+
+        let n = ns.eq(y_in_dex);//n是操作的节点 ns是节点数组
+
+        dg2(ns, 0);
+    }
+
+
+    let n2 = nodes.eq(y_in_dex);//n2是操作的节点 nodes是节点数组
+    y_in_dex++;
+    if (nodes.length > y_in_dex) {
+
+        dg2(nodes, y_in_dex);
+    }
+
+    _nodes2.push(n2);
+
+}
+
+
+
+function remove_nodes() {
+    _nodes2[0].remove();
+    _nodes2.shift();
 }
 
 function setZeroOpacity(dom) {
