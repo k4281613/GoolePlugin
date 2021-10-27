@@ -79,7 +79,7 @@ function xiaohuangdou() {
     // dg2(bodys, 0);
     // console.log(_nodes);//不含自身
     // console.log(_nodes2);//包含自身
-    interval = setInterval(remove_nodes, 100);
+    interval = setInterval(remove_nodes, 10);
 }
 
 let _nodes = [];
@@ -102,13 +102,11 @@ function dg2(nodes, y_in_dex) {
 }
 
 function remove_nodes() {
-    let node=_nodes[0];
-    $(node)[0].innerHTML='<div class="processDiv"></div>';
-    console.log($(node)[0])
-    $(node)[0].style.background='red';
-    console.log($(node)[0]);
+
     // _nodes[0].remove();
-    _nodes.shift();
+    let node=_nodes.shift();
+    $(node)[0].style.background='red';
+    console.log(node)
     if (_nodes.length === 0) {
         clearInterval(interval);
         console.log('删除完成');
