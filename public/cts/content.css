@@ -44,9 +44,7 @@
     animation: roll2 1s infinite;
     background-color: #f6d20e;
 }
-.processDiv{
-    z-index: 9999;
-}
+
 @keyframes roll1 {
     from {
         transform: rotate(-45deg);
@@ -74,7 +72,23 @@
         transform: rotate(45deg);
     }
 }
+.processDiv{
+    z-index: 9999;
+    height: 100%;
+    top:0;
+    left: 0;
+    position: absolute;
+    background: red;
+    animation:mymove 0.1s infinite;
+}
 
-
-
+@keyframes mymove
+{
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
 

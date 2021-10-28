@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('我注入成功了！');
     showIcon();
 });
+
 /******************************注入熊猫***************************/
 function addPander() {
     let divs = $('img');
@@ -24,7 +25,7 @@ function showIcon() {
         //生成悬浮icon
         if (window.getSelection().toString().length > 1) {
             removeIcon();
-           /**************** 注入熊猫***************/
+            /**************** 注入熊猫***************/
             let icon = document.createElement('img');
             icon.src = 'https://wimg.588ku.com/gif620/20/07/06/16181476c32d1262a0d77a16ba9e4357.gif';
             icon.alt = '熊猫烧香';
@@ -73,16 +74,18 @@ function removeIcon() {
 
 /******************************贪吃的元素***************************/
 let interval;
+
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
     // dg2(bodys, 0);
     // console.log(_nodes);//不含自身
     // console.log(_nodes2);//包含自身
-    interval = setInterval(remove_nodes, 10);
+    remove_nodes(100)
 }
 
 let _nodes = [];
+
 function dg(nodes) {
     let ns = nodes.children();
     for (let i = 0; i < ns.length; i++) {
@@ -91,26 +94,36 @@ function dg(nodes) {
     }
 }
 
-let _nodes2 = [];
+/*let _nodes2 = [];
+
 function dg2(nodes, y_in_dex) {
     let ns = nodes.eq(y_in_dex).children();//获取节点下的子节点数组
     if (ns.length > 0) dg2(ns, 0);
     let n2 = nodes.eq(y_in_dex);//n2是操作的节点 nodes是节点数组
     y_in_dex++;
-    if (nodes.length > y_in_dex)dg2(nodes, y_in_dex);
+    if (nodes.length > y_in_dex) dg2(nodes, y_in_dex);
     _nodes2.push(n2);
+}*/
+
+function addDelCarton(node) {
+    $(node)[0].style.position = 'relative';
+    let div = document.createElement('div');
+    div.setAttribute('class', 'processDiv');
+    $(node)[0].append(div);
+
 }
-
-function remove_nodes() {
-
-    // _nodes[0].remove();
-    let node=_nodes.shift();
-    $(node)[0].style.background='red';
-    console.log(node)
-    if (_nodes.length === 0) {
-        clearInterval(interval);
-        console.log('删除完成');
+function remove_nodes(time) {
+    if(_nodes.length===0){
+        console.log('删除完成')
+        return
     }
+    let node = _nodes.shift();
+    addDelCarton(node)
+    setTimeout(()=>{
+        console.log(node)
+        node.remove();
+        remove_nodes(time)
+    },time)
 }
 
 /*-------------------------过滤youtobe---------------------*/
@@ -188,19 +201,21 @@ function getTmall() {
             arr.push(obj)
         })
         sentMsg({data: arr}, 'background');
-        let btn=document.querySelector('.ui-page-next');
-        setTimeout(()=> {
+        let btn = document.querySelector('.ui-page-next');
+        setTimeout(() => {
             if ($('.ui-page-cur').text() !== '10' && btn) {
                 $.cookie('downTmall', true);
                 let timer = setInterval(() => {
                     let html = document.querySelector('html');
-                    if (html.scrollTop < html.scrollHeight-2000) {
+                    if (html.scrollTop < html.scrollHeight - 2000) {
                         html.scrollTop = html.scrollTop + 10;
-                        console.log(html.scrollTop,html.scrollHeight)
+                        console.log(html.scrollTop, html.scrollHeight)
                     } else {
                         clearInterval(timer)
-                        let time=Math.random()*1000;
-                        setTimeout(()=>{btn.click();},time)
+                        let time = Math.random() * 1000;
+                        setTimeout(() => {
+                            btn.click();
+                        }, time)
                     }
                 }, 10)
             } else $.cookie('downTmall', false);
@@ -212,24 +227,26 @@ function getTmall() {
 function deleteAdvert() {
     $('.TopstoryItem--advertCard').remove()
 }
-function delVideo(){
-    let TopstoryItem=$('.TopstoryItem');
-    TopstoryItem.each((i,e)=>{
-        let video=$(e).find('.ZVideoItem');
-        let VideoAnswerPlayer=$(e).find('.VideoAnswerPlayer');
-        let ZVideoItemVideo=$(e).find('.ZVideoItem-player');
-        let ZVideoItem=$(e).find('.ZVideoItem');
-        if(video.length || VideoAnswerPlayer.length || ZVideoItem.length || ZVideoItemVideo.length)$(e).remove();
+
+function delVideo() {
+    let TopstoryItem = $('.TopstoryItem');
+    TopstoryItem.each((i, e) => {
+        let video = $(e).find('.ZVideoItem');
+        let VideoAnswerPlayer = $(e).find('.VideoAnswerPlayer');
+        let ZVideoItemVideo = $(e).find('.ZVideoItem-player');
+        let ZVideoItem = $(e).find('.ZVideoItem');
+        if (video.length || VideoAnswerPlayer.length || ZVideoItem.length || ZVideoItemVideo.length) $(e).remove();
     })
 }
-function resetZhihu(){
+
+function resetZhihu() {
     if (~window.location.href.indexOf('zhihu')) {
         let MutationObserver = window.MutationObserver;
-        let ele=document.getElementById('TopstoryContent');
+        let ele = document.getElementById('TopstoryContent');
         $('.TopstoryItem--advertCard').remove()
         delVideo();
         //监听容器高度
-        let watchFn=new MutationObserver((mutations)=>{
+        let watchFn = new MutationObserver((mutations) => {
             /*console.log(mutations,111)
             let height=ele.offsetHeight;
             console.log(height)*/
