@@ -36,7 +36,6 @@ function showIcon() {
             //icon绑定事件
             icon.addEventListener('click', (e) => {
                 addPander();
-                /*e.target.parentNode.removeChild(e.target);*/
                 removeIcon();
 
             })
@@ -54,7 +53,6 @@ function showIcon() {
             icon2.addEventListener('click', (e) => {
                 xiaohuangdou();
                 removeIcon();
-
             })
             document.body.appendChild(icon2);
         } else {
@@ -73,7 +71,6 @@ function removeIcon() {
 }
 
 /******************************贪吃的元素***************************/
-let interval;
 
 function xiaohuangdou() {
     let bodys = $('body');
