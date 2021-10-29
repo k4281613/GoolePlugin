@@ -73,6 +73,7 @@ function removeIcon() {
 /******************************贪吃的元素***************************/
 
 let interval;
+
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
@@ -111,9 +112,11 @@ function createxiaohuangdoumodel(x, y) {
     icon.style.top = y + 'px';
     document.body.appendChild(icon);
 }
+
 let ydcnt;
 let fx;
 let rw;
+
 function xiaohuangdouyd(time) {
     /**************** 移动贪吃人***************/
     let winwidth = $(window).width();
@@ -157,13 +160,13 @@ function xiaohuangdouyd(time) {
 
         //完成任务后自由移动
         let zx;//转向=0
-
+        let positionQrequency = 100;
         //边界判断
         switch (fx) {
             case 1:
                 //上
                 if ((icon.offsetTop - 1) > 0) {
-                    zx = Math.round(Math.random() * 300);
+                    zx = Math.round(Math.random() * positionQrequency);
                 } else {
                     zx = 0;
                     console.log('碰到上边界了')
@@ -172,7 +175,7 @@ function xiaohuangdouyd(time) {
             case 2:
                 //右
                 if ((icon.offsetWidth + icon.offsetLeft + 1) < winwidth) {
-                    zx = Math.round(Math.random() * 300);
+                    zx = Math.round(Math.random() * positionQrequency);
                 } else {
                     zx = 0;
                     console.log('碰到右边界了')
@@ -181,7 +184,7 @@ function xiaohuangdouyd(time) {
             case 3:
                 //下
                 if ((icon.offsetHeight + icon.offsetTop + 1) < winheight) {
-                    zx = Math.round(Math.random() * 300);
+                    zx = Math.round(Math.random() * positionQrequency);
                 } else {
                     zx = 0;
                     console.log('碰到下边界了')
@@ -190,7 +193,7 @@ function xiaohuangdouyd(time) {
             case 4:
                 //左
                 if ((icon.offsetLeft - 1) > 0) {
-                    zx = Math.round(Math.random() * 300);
+                    zx = Math.round(Math.random() * positionQrequency);
                 } else {
                     zx = 0;
                     console.log('碰到左边界了')
@@ -207,35 +210,63 @@ function xiaohuangdouyd(time) {
                 if (sjfx != fx) {
                     isyd = 0;
                 }
-
             }
             while (isyd);
             fx = sjfx;
         }
 
-
         //行驶
-        switch (fx) {
+        let xiaohuangdou = document.getElementById('xiaohuangdou');
+        let fns = [
+            {
+                fn: () => {
+                    xiaohuangdou.style.transform = "rotate(-90deg)";
+                    icon.style.top = (icon.offsetTop - 1) + 'px';
+                }
+            },
+            {
+                fn: () => {
+                    xiaohuangdou.style.transform = "rotate(0deg)";
+                    icon.style.left = (icon.offsetLeft + 1) + 'px';
+                }
+            },
+            {
+                fn: () => {
+                    xiaohuangdou.style.transform = "rotate(90deg)";
+                    icon.style.top = (icon.offsetTop + 1) + 'px';
+                }
+            },
+            {
+                fn: () => {
+                    xiaohuangdou.style.transform = "rotate(180deg)";
+                    icon.style.left = (icon.offsetLeft - 1) + 'px';
+                }
+            }
+        ]
+        fns[fx - 1].fn();
+        /*switch (fx) {
             case 1:
                 //上
+                xiaohuangdou.style.transform = "rotate(-90deg)";
                 icon.style.top = (icon.offsetTop - 1) + 'px';
                 break;
             case 2:
                 //右
+                xiaohuangdou.style.transform = "rotate(0deg)";
                 icon.style.left = (icon.offsetLeft + 1) + 'px';
                 break;
             case 3:
                 //下
+                xiaohuangdou.style.transform = "rotate(90deg)";
                 icon.style.top = (icon.offsetTop + 1) + 'px';
                 break;
             case 4:
                 //左
+                xiaohuangdou.style.transform = "rotate(180deg)";
                 icon.style.left = (icon.offsetLeft - 1) + 'px';
                 break;
-        }
+        }*/
     }
-
-
 
     setTimeout(() => {
         xiaohuangdouyd(time)
@@ -260,6 +291,7 @@ function addDelCarton(node) {
     $(node)[0].append(div);
 
 }
+
 function remove_nodes(time) {
     if (_nodes.length === 0) {
         console.log('删除完成')
@@ -296,8 +328,8 @@ function updateYotube() {
 function addBaiduButton() {
     if (~window.location.href.indexOf('baidu')) {
         let btnGroup = [
-            { value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup' },
-            { value: '给background发信息', msg: 'BI', type: 'background', id: 'background' },
+            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
+            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
         ];
         btnGroup.forEach(item => {
             let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
@@ -348,7 +380,7 @@ function getTmall() {
             obj.productStatus = $(children).children('.productStatus').text();
             arr.push(obj)
         })
-        sentMsg({ data: arr }, 'background');
+        sentMsg({data: arr}, 'background');
         let btn = document.querySelector('.ui-page-next');
         setTimeout(() => {
             if ($('.ui-page-cur').text() !== '10' && btn) {

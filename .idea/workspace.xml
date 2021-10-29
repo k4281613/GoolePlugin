@@ -18,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6106428">
+    <splitter split-orientation="horizontal" split-proportion="0.71654373">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -33,19 +33,15 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-189">
-                  <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+                <state relative-caret-position="425">
+                  <caret line="244" column="9" lean-forward="true" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
                   <folding>
                     <element signature="n#!!block;n#addPander#0" />
                     <element signature="n#!!block;n#showIcon#0" />
-                    <element signature="n#!!block;n#dg#0" />
-                    <element signature="n#!!block;n#createxiaohuangdoumodel#0" />
-                    <element signature="n#!!block;n#xiaohuangdouyd#0" />
-                    <element signature="e#4017#4190#0" />
-                    <element signature="n#!!block;n#setZeroOpacity#0" />
-                    <element signature="n#!!block;n#updateYotube#0" />
-                    <element signature="n#!!block;n#addBaiduButton#0" />
-                    <element signature="n#!!block;n#sentMsg#0" />
+                    <element signature="e#3996#5120#0" />
+                    <element signature="e#4169#4366#0" />
+                    <element signature="e#6434#6714#0" />
+                    <element signature="e#7599#8387#0" />
                     <element signature="n#!!block;n#getTmall#0" />
                     <element signature="n#!!block;n#delVideo#0" />
                     <element signature="n#!!block;n#resetZhihu#0" />
@@ -58,7 +54,7 @@
             <entry file="file://$PROJECT_DIR$/public/cts/content.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1701">
-                  <caret line="63" selection-start-line="63" selection-end-line="63" />
+                  <caret line="64" selection-start-line="64" selection-end-line="64" />
                 </state>
               </provider>
             </entry>
@@ -91,8 +87,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/cts/content.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="621">
-                  <caret line="113" column="1" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
+                <state relative-caret-position="215">
+                  <caret line="20" column="17" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -197,8 +193,8 @@
         <option value="$PROJECT_DIR$/src/screen/MouseEvent/index.js" />
         <option value="$PROJECT_DIR$/public/reset_index.js" />
         <option value="$PROJECT_DIR$/../新建文件夹/test.js" />
-        <option value="$PROJECT_DIR$/public/cts/content_script.js" />
         <option value="$PROJECT_DIR$/public/cts/content.css" />
+        <option value="$PROJECT_DIR$/public/cts/content_script.js" />
       </list>
     </option>
   </component>
@@ -366,12 +362,12 @@
       <workItem from="1634629672448" duration="9023000" />
       <workItem from="1635238430292" duration="2211000" />
       <workItem from="1635314213883" duration="20678000" />
-      <workItem from="1635475888349" duration="861000" />
+      <workItem from="1635475888349" duration="9414000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297434000" />
+    <option name="totallyTimeSpent" value="305987000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -384,6 +380,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.21285564" />
@@ -393,7 +390,7 @@
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="运行" order="3" weight="0.32900432" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" visible="true" weight="0.12134345" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" visible="true" weight="0.3033586" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50052685" side_tool="true" weight="0.26406926" />
       <window_info anchor="bottom" id="调试" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
@@ -466,12 +463,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/cts/content_script.js</url>
-          <line>312</line>
+          <line>443</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/cts/content_script.js</url>
-          <line>94</line>
+          <line>98</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -876,32 +873,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1701">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        <state relative-caret-position="425">
+          <caret line="244" column="9" lean-forward="true" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
           <folding>
             <element signature="n#!!block;n#addPander#0" />
             <element signature="n#!!block;n#showIcon#0" />
-            <element signature="n#!!block;n#dg#0" />
-            <element signature="n#!!block;n#createxiaohuangdoumodel#0" />
-            <element signature="n#!!block;n#xiaohuangdouyd#0" />
-            <element signature="e#4017#4190#0" />
-            <element signature="n#!!block;n#setZeroOpacity#0" />
-            <element signature="n#!!block;n#updateYotube#0" />
-            <element signature="n#!!block;n#addBaiduButton#0" />
-            <element signature="n#!!block;n#sentMsg#0" />
+            <element signature="e#3996#5120#0" />
+            <element signature="e#4169#4366#0" />
+            <element signature="e#6434#6714#0" />
+            <element signature="e#7599#8387#0" />
             <element signature="n#!!block;n#getTmall#0" />
             <element signature="n#!!block;n#delVideo#0" />
             <element signature="n#!!block;n#resetZhihu#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/cts/content.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="113" column="1" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
         </state>
       </provider>
     </entry>

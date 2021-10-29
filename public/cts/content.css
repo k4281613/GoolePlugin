@@ -19,7 +19,8 @@
 }
 
 .App-xiaohuangdou {
-    height: 5vmin;
+    height: 40px;
+    width: 40px;
     z-index: 99999;
     cursor: pointer;
     position: fixed;
