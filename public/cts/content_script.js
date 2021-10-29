@@ -19,7 +19,7 @@ function addPander() {
 function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
-        if (eClass === 'App-icon' || eClass === 'top' || eClass === 'bottom') {
+        if (eClass === 'App-icon' || eClass === 'topRight' || eClass === 'bottomRight' || eClass === 'topLeft' || eClass === 'bottomLeft') {
             return
         }
         //生成悬浮icon
@@ -43,8 +43,8 @@ function showIcon() {
             document.body.appendChild(icon);
             /**************** 注入贪吃人***************/
             let icon2 = document.createElement('div');
-            icon2.innerHTML = `<div class="top"></div>
-    <div class="bottom"></div>`;
+            icon2.innerHTML = `<div class="topRight"></div>
+    <div class="bottomRight"></div>`;
             icon2.alt = '小黄豆';
             icon2.setAttribute('class', 'App-icon');
             icon2.setAttribute('id', 'App-icon2');
@@ -82,6 +82,11 @@ function xiaohuangdou() {
     // console.log(_nodes);//不含自身
     // console.log(_nodes2);//包含自身
     remove_nodes(100)
+
+    createxiaohuangdoumodel(0, 0);
+    ydcnt = 1;
+    fx = 1;
+    interval = setInterval(xiaohuangdouyd, 1);
 }
 
 let _nodes = [];
@@ -91,6 +96,53 @@ function dg(nodes) {
     for (let i = 0; i < ns.length; i++) {
         dg(ns.eq(i));
         _nodes.push(ns.eq(i));
+    }
+}
+
+function createxiaohuangdoumodel(x, y) {
+    /**************** 注入贪吃人***************/
+    let icon = document.createElement('div');
+    icon.innerHTML = `<div class="topRight"></div>
+    <div class="bottomRight"></div>`;
+    icon.alt = '小黄豆';
+    icon.setAttribute('class', 'App-xiaohuangdou');
+    icon.setAttribute('id', 'xiaohuangdou');
+    icon.style.left = x + 'px';
+    icon.style.top = y + 'px';
+    document.body.appendChild(icon);
+}
+let ydcnt;
+let fx;
+function xiaohuangdouyd() {
+    /**************** 移动贪吃人***************/
+    let winwidth = $(window).width();
+    let icon = document.getElementById("xiaohuangdou");
+    if (
+        ((icon.offsetWidth + icon.offsetLeft) < winwidth) && fx == 1
+        ||
+        (icon.offsetLeft > 0) && fx == 0
+    ) {
+        if (fx) {
+            icon.style.left = (icon.offsetLeft + 1) + 'px';
+        } else {
+
+            icon.style.left = (icon.offsetLeft - 1) + 'px';
+        }
+    } else {
+        if (icon.offsetTop < (icon.offsetHeight * ydcnt)) {
+            icon.style.top = (icon.offsetTop + 1) + 'px';
+        } else {
+            if (fx) {
+                fx = 0;
+                icon.innerHTML = `<div class="topLeft"></div>
+    <div class="bottomLeft"></div>`;
+            } else {
+                fx = 1;
+                icon.innerHTML = `<div class="topRight"></div>
+    <div class="bottomRight"></div>`;
+            }
+            ydcnt++;
+        }
     }
 }
 

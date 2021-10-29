@@ -25,3 +25,6 @@ yarn-error.log*
 /.vs/VSWorkspaceState.json
 /.vs/GoolePlugin/v16/.suo
 /.vs/GoolePlugin/config/applicationhost.config
+/谷歌拓展插件.rar
+/build.pem
+/build.crx
