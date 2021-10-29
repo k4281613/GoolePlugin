@@ -84,6 +84,7 @@ function xiaohuangdou() {
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
+    rw = 0;
     xiaohuangdouyd(1);
     //interval = setInterval(xiaohuangdouyd, 1);
 }
@@ -112,37 +113,123 @@ function createxiaohuangdoumodel(x, y) {
 }
 let ydcnt;
 let fx;
+let rw;
 function xiaohuangdouyd(time) {
     /**************** 移动贪吃人***************/
     let winwidth = $(window).width();
+    let winheight = $(window).height();
     let icon = document.getElementById("xiaohuangdou");
-    if (
-        ((icon.offsetWidth + icon.offsetLeft) < winwidth) && fx == 1
-        ||
-        (icon.offsetLeft > 0) && fx == 0
-    ) {
-        if (fx) {
-            icon.style.left = (icon.offsetLeft + 1) + 'px';
-        } else {
+    if (rw) {
+        //正常移动
+        if (
+            ((icon.offsetWidth + icon.offsetLeft) < winwidth) && fx == 1
+            ||
+            (icon.offsetLeft > 0) && fx == 0
+        ) {
+            if (fx) {
+                icon.style.left = (icon.offsetLeft + 1) + 'px';
+            } else {
 
-            icon.style.left = (icon.offsetLeft - 1) + 'px';
+                icon.style.left = (icon.offsetLeft - 1) + 'px';
+            }
+        } else {
+            if ((icon.offsetHeight + icon.offsetTop) < winheight) {
+                if (icon.offsetTop < (icon.offsetHeight * ydcnt)) {
+                    icon.style.top = (icon.offsetTop + 1) + 'px';
+                } else {
+                    if (fx) {
+                        fx = 0;
+                        icon.innerHTML = `<div class="topLeft"></div>
+    <div class="bottomLeft"></div>`;
+                    } else {
+                        fx = 1;
+                        icon.innerHTML = `<div class="topRight"></div>
+    <div class="bottomRight"></div>`;
+                    }
+                    ydcnt++;
+                }
+            } else {
+                rw = 0;
+                console.log('我自由了');
+            }
         }
     } else {
-        if (icon.offsetTop < (icon.offsetHeight * ydcnt)) {
-            icon.style.top = (icon.offsetTop + 1) + 'px';
+        //完成任务后自由移动
+        let sjzx = Math.round(Math.random() * 50);
+        if (sjzx) {
+            //正常行驶
         } else {
-            if (fx) {
-                fx = 0;
-                icon.innerHTML = `<div class="topLeft"></div>
-    <div class="bottomLeft"></div>`;
-            } else {
-                fx = 1;
-                icon.innerHTML = `<div class="topRight"></div>
-    <div class="bottomRight"></div>`;
+            //转向
+            let isyd = 1;
+            let sjfx;
+            do {
+                sjfx = Math.round(Math.random() * 3) + 1;
+                if (sjfx != fx) {
+                    switch (sjfx) {
+                        case 1:
+                            //上
+                            if ((icon.offsetTop - 1) > 0) {
+                                isyd = 0;
+                            } else {
+                                console.log('碰到上边界了')
+                            }
+                            break;
+                        case 2:
+                            //右
+                            if ((icon.offsetWidth + icon.offsetLeft + 1) < winwidth) {
+                                isyd = 0;
+                            } else {
+                                console.log('碰到右边界了')
+                            }
+                            break;
+                        case 3:
+                            //下
+                            if ((icon.offsetHeight + icon.offsetTop + 1) < winheight) {
+                                isyd = 0;
+                            } else {
+                                console.log('碰到下边界了')
+                            }
+                            break;
+                        case 4:
+                            //左
+                            if ((icon.offsetLeft - 1) > 0) {
+                                isyd = 0;
+                            } else {
+                                console.log('碰到左边界了')
+                            }
+                            break;
+                    }
+                }
+
             }
-            ydcnt++;
+            while (isyd);
+            fx = sjfx;
+        }
+
+
+        //行驶
+        switch (fx) {
+            case 1:
+                //上
+                icon.style.top = (icon.offsetTop - 1) + 'px';
+                break;
+            case 2:
+                //右
+                icon.style.left = (icon.offsetLeft + 1) + 'px';
+                break;
+            case 3:
+                //下
+                icon.style.top = (icon.offsetTop + 1) + 'px';
+                break;
+            case 4:
+                //左
+                icon.style.left = (icon.offsetLeft - 1) + 'px';
+                break;
         }
     }
+
+
+
     setTimeout(() => {
         xiaohuangdouyd(time)
     }, time)
@@ -167,17 +254,17 @@ function addDelCarton(node) {
 
 }
 function remove_nodes(time) {
-    if(_nodes.length===0){
+    if (_nodes.length === 0) {
         console.log('删除完成')
         return
     }
     let node = _nodes.shift();
     addDelCarton(node)
-    setTimeout(()=>{
-        console.log(node)
+    setTimeout(() => {
+        //console.log(node)
         node.remove();
         remove_nodes(time)
-    },time)
+    }, time)
 }
 
 /*-------------------------过滤youtobe---------------------*/
@@ -202,8 +289,8 @@ function updateYotube() {
 function addBaiduButton() {
     if (~window.location.href.indexOf('baidu')) {
         let btnGroup = [
-            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
-            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
+            { value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup' },
+            { value: '给background发信息', msg: 'BI', type: 'background', id: 'background' },
         ];
         btnGroup.forEach(item => {
             let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
@@ -254,7 +341,7 @@ function getTmall() {
             obj.productStatus = $(children).children('.productStatus').text();
             arr.push(obj)
         })
-        sentMsg({data: arr}, 'background');
+        sentMsg({ data: arr }, 'background');
         let btn = document.querySelector('.ui-page-next');
         setTimeout(() => {
             if ($('.ui-page-cur').text() !== '10' && btn) {
