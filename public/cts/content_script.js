@@ -71,6 +71,7 @@ function removeIcon() {
 }
 
 /******************************贪吃的元素***************************/
+
 let interval;
 function xiaohuangdou() {
     let bodys = $('body');
@@ -83,7 +84,8 @@ function xiaohuangdou() {
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
-    interval = setInterval(xiaohuangdouyd, 1);
+    xiaohuangdouyd(1);
+    //interval = setInterval(xiaohuangdouyd, 1);
 }
 
 let _nodes = [];
@@ -110,7 +112,7 @@ function createxiaohuangdoumodel(x, y) {
 }
 let ydcnt;
 let fx;
-function xiaohuangdouyd() {
+function xiaohuangdouyd(time) {
     /**************** 移动贪吃人***************/
     let winwidth = $(window).width();
     let icon = document.getElementById("xiaohuangdou");
@@ -141,6 +143,9 @@ function xiaohuangdouyd() {
             ydcnt++;
         }
     }
+    setTimeout(() => {
+        xiaohuangdouyd(time)
+    }, time)
 }
 
 /*let _nodes2 = [];
