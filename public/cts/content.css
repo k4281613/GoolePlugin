@@ -109,7 +109,7 @@
     top:0;
     left: 0;
     position: absolute;
-    background: red;
+    background: red !important;
     animation:mymove 0.1s infinite;
 }
 

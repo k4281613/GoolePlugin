@@ -71,7 +71,7 @@ function removeIcon() {
 }
 
 /******************************贪吃的元素***************************/
-
+let interval;
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
