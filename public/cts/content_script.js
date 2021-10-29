@@ -154,51 +154,58 @@ function xiaohuangdouyd(time) {
             }
         }
     } else {
+
         //完成任务后自由移动
-        let sjzx = Math.round(Math.random() * 50);
-        if (sjzx) {
-            //正常行驶
-        } else {
-            //转向
+        let zx;//转向=0
+
+        //边界判断
+        switch (fx) {
+            case 1:
+                //上
+                if ((icon.offsetTop - 1) > 0) {
+                    zx = Math.round(Math.random() * 300);
+                } else {
+                    zx = 0;
+                    console.log('碰到上边界了')
+                }
+                break;
+            case 2:
+                //右
+                if ((icon.offsetWidth + icon.offsetLeft + 1) < winwidth) {
+                    zx = Math.round(Math.random() * 300);
+                } else {
+                    zx = 0;
+                    console.log('碰到右边界了')
+                }
+                break;
+            case 3:
+                //下
+                if ((icon.offsetHeight + icon.offsetTop + 1) < winheight) {
+                    zx = Math.round(Math.random() * 300);
+                } else {
+                    zx = 0;
+                    console.log('碰到下边界了')
+                }
+                break;
+            case 4:
+                //左
+                if ((icon.offsetLeft - 1) > 0) {
+                    zx = Math.round(Math.random() * 300);
+                } else {
+                    zx = 0;
+                    console.log('碰到左边界了')
+                }
+                break;
+        }
+
+        //转向
+        if (!zx) {
             let isyd = 1;
             let sjfx;
             do {
                 sjfx = Math.round(Math.random() * 3) + 1;
                 if (sjfx != fx) {
-                    switch (sjfx) {
-                        case 1:
-                            //上
-                            if ((icon.offsetTop - 1) > 0) {
-                                isyd = 0;
-                            } else {
-                                console.log('碰到上边界了')
-                            }
-                            break;
-                        case 2:
-                            //右
-                            if ((icon.offsetWidth + icon.offsetLeft + 1) < winwidth) {
-                                isyd = 0;
-                            } else {
-                                console.log('碰到右边界了')
-                            }
-                            break;
-                        case 3:
-                            //下
-                            if ((icon.offsetHeight + icon.offsetTop + 1) < winheight) {
-                                isyd = 0;
-                            } else {
-                                console.log('碰到下边界了')
-                            }
-                            break;
-                        case 4:
-                            //左
-                            if ((icon.offsetLeft - 1) > 0) {
-                                isyd = 0;
-                            } else {
-                                console.log('碰到左边界了')
-                            }
-                            break;
-                    }
+                    isyd = 0;
                 }
 
             }
