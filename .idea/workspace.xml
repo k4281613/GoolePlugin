@@ -33,15 +33,14 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="244" column="9" lean-forward="true" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
+                <state relative-caret-position="291">
+                  <caret line="242" column="17" lean-forward="true" selection-start-line="242" selection-start-column="17" selection-end-line="242" selection-end-column="17" />
                   <folding>
                     <element signature="n#!!block;n#addPander#0" />
                     <element signature="n#!!block;n#showIcon#0" />
                     <element signature="e#3996#5120#0" />
                     <element signature="e#4169#4366#0" />
                     <element signature="e#6434#6714#0" />
-                    <element signature="e#7599#8387#0" />
                     <element signature="n#!!block;n#getTmall#0" />
                     <element signature="n#!!block;n#delVideo#0" />
                     <element signature="n#!!block;n#resetZhihu#0" />
@@ -362,12 +361,12 @@
       <workItem from="1634629672448" duration="9023000" />
       <workItem from="1635238430292" duration="2211000" />
       <workItem from="1635314213883" duration="20678000" />
-      <workItem from="1635475888349" duration="9414000" />
+      <workItem from="1635475888349" duration="10668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305987000" />
+    <option name="totallyTimeSpent" value="307241000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -882,15 +881,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="244" column="9" lean-forward="true" selection-start-line="244" selection-start-column="9" selection-end-line="244" selection-end-column="9" />
+        <state relative-caret-position="291">
+          <caret line="242" column="17" lean-forward="true" selection-start-line="242" selection-start-column="17" selection-end-line="242" selection-end-column="17" />
           <folding>
             <element signature="n#!!block;n#addPander#0" />
             <element signature="n#!!block;n#showIcon#0" />
             <element signature="e#3996#5120#0" />
             <element signature="e#4169#4366#0" />
             <element signature="e#6434#6714#0" />
-            <element signature="e#7599#8387#0" />
             <element signature="n#!!block;n#getTmall#0" />
             <element signature="n#!!block;n#delVideo#0" />
             <element signature="n#!!block;n#resetZhihu#0" />
