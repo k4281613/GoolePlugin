@@ -244,28 +244,6 @@ function xiaohuangdouyd(time) {
             }
         ]
         fns[fx - 1].fn();
-        /*switch (fx) {
-            case 1:
-                //上
-                xiaohuangdou.style.transform = "rotate(-90deg)";
-                icon.style.top = (icon.offsetTop - 1) + 'px';
-                break;
-            case 2:
-                //右
-                xiaohuangdou.style.transform = "rotate(0deg)";
-                icon.style.left = (icon.offsetLeft + 1) + 'px';
-                break;
-            case 3:
-                //下
-                xiaohuangdou.style.transform = "rotate(90deg)";
-                icon.style.top = (icon.offsetTop + 1) + 'px';
-                break;
-            case 4:
-                //左
-                xiaohuangdou.style.transform = "rotate(180deg)";
-                icon.style.left = (icon.offsetLeft - 1) + 'px';
-                break;
-        }*/
     }
 
     setTimeout(() => {
