@@ -18,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.71654373">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -33,47 +33,21 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="237">
-                  <caret line="249" column="64" lean-forward="true" selection-start-line="249" selection-start-column="64" selection-end-line="249" selection-end-column="64" />
+                <state relative-caret-position="657">
+                  <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
                   <folding>
-                    <element signature="n#!!block;n#addPander#0" />
-                    <element signature="n#!!block;n#showIcon#0" />
+                    <element signature="n#!!block;n#xiaohuangdouyd#0" />
                     <element signature="e#3996#5120#0" />
                     <element signature="e#4169#4366#0" />
                     <element signature="e#6434#6714#0" />
+                    <element signature="e#7551#7846#0" />
+                    <element signature="n#!!block;n#remove_nodes#0" />
+                    <element signature="n#!!block;n#setZeroOpacity#0" />
+                    <element signature="n#!!block;n#updateYotube#0" />
+                    <element signature="n#!!block;n#addBaiduButton#0" />
                     <element signature="n#!!block;n#getTmall#0" />
-                    <element signature="n#!!block;n#delVideo#0" />
-                    <element signature="n#!!block;n#resetZhihu#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/cts/content.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1701">
-                  <caret line="64" selection-start-line="64" selection-end-line="64" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/reset_index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
-                  <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../新建文件夹/test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="55" selection-start-line="55" selection-end-line="55" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#202#1029#0" />
+                    <element signature="e#8489#8692#0" />
+                    <element signature="e#8723#9134#0" />
                   </folding>
                 </state>
               </provider>
@@ -82,12 +56,20 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/cts/content.css">
+            <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="215">
-                  <caret line="20" column="17" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="17" />
+                <state relative-caret-position="299">
+                  <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+                  <folding>
+                    <element signature="n#!!block;n#setZeroOpacity#0" />
+                    <element signature="n#!!block;n#updateYotube#0" />
+                    <element signature="n#!!block;n#addBaiduButton#0" />
+                    <element signature="n#!!block;n#getTmall#0" />
+                    <element signature="n#!!block;n#delVideo#0" />
+                    <element signature="n#!!block;n#resetZhihu#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -133,6 +115,7 @@
       <find>node</find>
       <find>addPander</find>
       <find>interval</find>
+      <find>xiaohuangdou</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -207,70 +190,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="container" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="container" type="462c0819:PsiDirectoryNode" />
-              <item name="PluginHeader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trans-text" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trans-text" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
-              <item name="MouseEvent" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -361,12 +281,12 @@
       <workItem from="1634629672448" duration="9023000" />
       <workItem from="1635238430292" duration="2211000" />
       <workItem from="1635314213883" duration="20678000" />
-      <workItem from="1635475888349" duration="10715000" />
+      <workItem from="1635475888349" duration="12508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307288000" />
+    <option name="totallyTimeSpent" value="309081000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,6 +299,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.21285564" />
@@ -388,7 +309,7 @@
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="运行" order="3" weight="0.32900432" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" visible="true" weight="0.3033586" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49947312" weight="0.3033586" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50052685" side_tool="true" weight="0.26406926" />
       <window_info anchor="bottom" id="调试" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
@@ -461,13 +382,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/cts/content_script.js</url>
-          <line>443</line>
+          <line>420</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/cts/content_script.js</url>
           <line>98</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/cts/content_script.js</url>
+          <line>102</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -880,17 +807,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/cts/content_script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="249" column="64" lean-forward="true" selection-start-line="249" selection-start-column="64" selection-end-line="249" selection-end-column="64" />
+        <state relative-caret-position="657">
+          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
           <folding>
-            <element signature="n#!!block;n#addPander#0" />
-            <element signature="n#!!block;n#showIcon#0" />
+            <element signature="n#!!block;n#xiaohuangdouyd#0" />
             <element signature="e#3996#5120#0" />
             <element signature="e#4169#4366#0" />
             <element signature="e#6434#6714#0" />
+            <element signature="e#7551#7846#0" />
+            <element signature="n#!!block;n#remove_nodes#0" />
+            <element signature="n#!!block;n#setZeroOpacity#0" />
+            <element signature="n#!!block;n#updateYotube#0" />
+            <element signature="n#!!block;n#addBaiduButton#0" />
             <element signature="n#!!block;n#getTmall#0" />
-            <element signature="n#!!block;n#delVideo#0" />
-            <element signature="n#!!block;n#resetZhihu#0" />
+            <element signature="e#8489#8692#0" />
+            <element signature="e#8723#9134#0" />
           </folding>
         </state>
       </provider>

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /******************************注入熊猫***************************/
+//添加熊猫icon
 function addPander() {
     let divs = $('img');
     Object.keys(divs).forEach(async key => {
@@ -15,7 +16,39 @@ function addPander() {
         $(divs[key]).css("filter", `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`);
     })
 }
-
+//添加熊猫炸弹icon
+function addPanderBomb(e) {
+    let icon = document.createElement('img');
+    icon.src = 'https://wimg.588ku.com/gif620/20/07/06/16181476c32d1262a0d77a16ba9e4357.gif';
+    icon.alt = '熊猫烧香';
+    icon.setAttribute('class', 'App-icon');
+    icon.setAttribute('id', 'App-icon');
+    icon.style.left = e.clientX + 30 + 'px';
+    icon.style.top = e.clientY - 10 + 'px';
+    //icon绑定事件
+    icon.addEventListener('click', (e) => {
+        addPander();
+        removeIcon();
+    })
+    document.body.appendChild(icon);
+}
+//添加小黄人炸弹icon
+function addYellowishBomb(e) {
+    let icon2 = document.createElement('div');
+    icon2.innerHTML = `<div class="topRight"></div>
+    <div class="bottomRight"></div>`;
+    icon2.alt = '小黄豆';
+    icon2.setAttribute('class', 'App-icon');
+    icon2.setAttribute('id', 'App-icon2');
+    icon2.style.left = e.clientX + 70 + 'px';
+    icon2.style.top = e.clientY - 10 + 'px';
+    //icon绑定事件
+    icon2.addEventListener('click', (e) => {
+        xiaohuangdou();
+        removeIcon();
+    })
+    document.body.appendChild(icon2);
+}
 function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
@@ -24,37 +57,9 @@ function showIcon() {
         }
         //生成悬浮icon
         if (window.getSelection().toString().length > 1) {
-            removeIcon();
-            /**************** 注入熊猫***************/
-            let icon = document.createElement('img');
-            icon.src = 'https://wimg.588ku.com/gif620/20/07/06/16181476c32d1262a0d77a16ba9e4357.gif';
-            icon.alt = '熊猫烧香';
-            icon.setAttribute('class', 'App-icon');
-            icon.setAttribute('id', 'App-icon');
-            icon.style.left = e.clientX + 30 + 'px';
-            icon.style.top = e.clientY - 10 + 'px';
-            //icon绑定事件
-            icon.addEventListener('click', (e) => {
-                addPander();
-                removeIcon();
-
-            })
-            document.body.appendChild(icon);
-            /**************** 注入贪吃人***************/
-            let icon2 = document.createElement('div');
-            icon2.innerHTML = `<div class="topRight"></div>
-    <div class="bottomRight"></div>`;
-            icon2.alt = '小黄豆';
-            icon2.setAttribute('class', 'App-icon');
-            icon2.setAttribute('id', 'App-icon2');
-            icon2.style.left = e.clientX + 70 + 'px';
-            icon2.style.top = e.clientY - 10 + 'px';
-            //icon绑定事件
-            icon2.addEventListener('click', (e) => {
-                xiaohuangdou();
-                removeIcon();
-            })
-            document.body.appendChild(icon2);
+            removeIcon();//删除上一次的炸弹icon
+            addPanderBomb(e);//添加熊猫炸弹
+            addYellowishBomb(e);//添加小黄人炸弹
         } else {
             removeIcon();
         }
@@ -77,17 +82,12 @@ let interval;
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
-    // dg2(bodys, 0);
-    // console.log(_nodes);//不含自身
-    // console.log(_nodes2);//包含自身
     remove_nodes(100)
-
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
     rw = 0;
     xiaohuangdouyd(1);
-    //interval = setInterval(xiaohuangdouyd, 1);
 }
 
 let _nodes = [];
@@ -267,7 +267,6 @@ function addDelCarton(node) {
     let div = document.createElement('div');
     div.setAttribute('class', 'processDiv');
     $(node)[0].append(div);
-
 }
 
 function remove_nodes(time) {
