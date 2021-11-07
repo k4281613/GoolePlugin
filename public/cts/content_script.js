@@ -16,6 +16,7 @@ function addPander() {
         $(divs[key]).css("filter", `hue-rotate(${(Math.random() * 360).toFixed(0)}deg)`);
     })
 }
+
 //添加熊猫炸弹icon
 function addPanderBomb(e) {
     let icon = document.createElement('img');
@@ -32,6 +33,7 @@ function addPanderBomb(e) {
     })
     document.body.appendChild(icon);
 }
+
 //添加小黄人炸弹icon
 function addYellowishBomb(e) {
     let icon2 = document.createElement('div');
@@ -49,6 +51,7 @@ function addYellowishBomb(e) {
     })
     document.body.appendChild(icon2);
 }
+
 function showIcon() {
     document.addEventListener('mouseup', (e) => {
         let eClass = e.target.getAttribute('class');
@@ -410,14 +413,44 @@ function resetZhihu() {
             $('.TopstoryItem--advertCard').remove()
             delVideo();
         })
-        watchFn.observe(ele, {
-            // childList: true, // 子节点的变动（新增、删除或者更改）
-            attributes: true, // 属性的变动
-            // characterData: true, // 节点内容或节点文本的变动
-            subtree: true, // 是否将观察器应用于该节点的所有后代节点
-            attributeFilter: ['class', 'style'], // 观察特定属性
-            attributeOldValue: true, // 观察 attributes 变动时，是否需要记录变动前的属性值
-            characterDataOldValue: true // 观察 characterData 变动，是否需要记录变动前的值
+        try {
+            watchFn.observe(ele, {
+                // childList: true, // 子节点的变动（新增、删除或者更改）
+                attributes: true, // 属性的变动
+                // characterData: true, // 节点内容或节点文本的变动
+                subtree: true, // 是否将观察器应用于该节点的所有后代节点
+                attributeFilter: ['class', 'style'], // 观察特定属性
+                attributeOldValue: true, // 观察 attributes 变动时，是否需要记录变动前的属性值
+                characterDataOldValue: true // 观察 characterData 变动，是否需要记录变动前的值
+            })
+        } catch (e) {
+            console.warn(e)
+        }
+
+    }
+}
+
+/******************************BI摸鱼插件***************************/
+function addBiFrame() {
+    let body = document.querySelector('body');
+    let iframe = document.createElement('iframe');
+    iframe.src = 'http://www.wesane.com/Public/Games/326029/201605240441409210/html5/index.html?gameID=226106';
+    $(iframe).attr('class', 'gloabPlay');
+    $(iframe).attr('id', 'gloabPlay');
+    $(iframe).css('display', 'none');
+    body.append(iframe);
+}
+
+function addListenKeydown() {
+    if (~window.location.href.indexOf('Ceo/liveshow.html')) {
+        addBiFrame();
+        $(document).keydown(function (event) {
+            if(event.keyCode === 113){
+                let gloabPlay=$('#gloabPlay');
+                let gloabPlayDisplay=gloabPlay.css('display');
+                gloabPlay.css('display',gloabPlayDisplay==='block'?'none':'block')
+                console.log('你按下了f2',gloabPlayDisplay)
+            }
         })
     }
 }
@@ -426,7 +459,7 @@ window.onload = () => {
     updateYotube();
     addBaiduButton();
     resetZhihu();
+    addListenKeydown();
     let cookie = $.cookie('downTmall');
-    console.log(cookie)
     if (cookie === 'true') getTmall()
 }

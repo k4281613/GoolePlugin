@@ -124,3 +124,17 @@
     }
 }
 
+.gloabPlay {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    width: 25%;
+    height: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    border: none;
+}
+#canvasDiv{
+    background:#1a004e;
+    overflow: hidden;
+}
