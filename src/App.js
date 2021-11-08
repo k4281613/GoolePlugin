@@ -4,6 +4,7 @@ import Tab1 from './screen/Tab1/index'
 import Tab2 from './screen/Tab2/index'
 import Chrome from './screen/Chrome/index'
 import MouseEvent from './screen/MouseEvent/index'
+import Boast from './screen/Boast/index'
 import PluginHeader from './components/container/PluginHeader'
 import React, {useEffect} from 'react'
 function App() {
@@ -20,6 +21,7 @@ function App() {
                     <Route component={Tab2} path='/tab2'/>
                     <Route component={Chrome} path='/chrome'/>
                     <Route component={MouseEvent} path='/mousevent'exact/>
+                    <Route component={Boast} path='/boast'exact/>
                 </Switch>
             </HashRouter>
         </div>

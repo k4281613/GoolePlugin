@@ -8,8 +8,9 @@ function PluginHeader(props) {
         {name: 'Tab2', path: '/tab2'},
         {name: 'Chrome', path: '/chrome'},
         {name: 'MouseEvent', path: '/mousevent'},
+        {name: 'Boast', path: '/boast'},
     ]
-    const [actived, setActived] = useState('/mousevent');
+    const [actived, setActived] = useState('/boast');
 
     useEffect(() => {
         props.history.replace(actived)

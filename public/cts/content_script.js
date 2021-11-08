@@ -85,7 +85,7 @@ let interval;
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
-    remove_nodes(100)
+    remove_nodes(10)
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
@@ -280,7 +280,7 @@ function remove_nodes(time) {
     let node = _nodes.shift();
     addDelCarton(node)
     setTimeout(() => {
-        //console.log(node)
+        console.log(node)
         node.remove();
         remove_nodes(time)
     }, time)
@@ -335,6 +335,11 @@ function sentMsg(msg, type) {
 //获取信息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     console.log(request/*, sender, sendResponse*/);
+    if (request.type === 'boom') {
+        sendResponse('content_script:炸弹启动了');
+        xiaohuangdou();
+        return
+    }
     if (request.type === 'tmall') {
         sendResponse('开始获取数据');
         getTmall();
