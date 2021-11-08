@@ -13,6 +13,12 @@ chrome.contextMenus.create({
         chrome.tabs.create({url: 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURI(params.selectionText)});
     }
 });
+chrome.contextMenus.create({
+    title:'启动炸弹',
+    onclick:function(){
+        sendMessage({msg:'background：启动炸弹',type:'boom'})
+    }
+})
 /*---------------------------omnibox 演示-----------------------*/
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
     console.log('inputChanged: ' + text);
@@ -101,11 +107,11 @@ async function callbackMsg(msg){
         console.log('background收到了回调:'+res)
     })
 }
-async function sendMessage() {
+async function sendMessage(req='我是background，我在发送消息') {
     //popup和background只有一个能回信息，其中一个回了，其他不会回
     const tabId = await getCurrentTabId()
     // 在背景页面发送消息，需要当前 tabID
-    chrome.tabs.sendMessage(tabId, '我是background，我在发送消息', function (res) {
+    chrome.tabs.sendMessage(tabId, req, function (res) {
         console.log('background：', res)
     });
 }
