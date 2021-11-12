@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('我注入成功了！');
+    console.log('我注入成功了！',$(this));
     showIcon();
 });
 
@@ -80,12 +80,12 @@ function removeIcon() {
 
 /******************************贪吃的元素***************************/
 
-let interval;
+let eatTingBool = true;
 
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
-    remove_nodes(10)
+    remove_nodes(100)
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
@@ -122,133 +122,133 @@ let rw;
 
 function xiaohuangdouyd(time) {
     /**************** 移动贪吃人***************/
-    let winwidth = $(window).width();
-    let winheight = $(window).height();
-    let icon = document.getElementById("xiaohuangdou");
-    if (rw) {
-        //正常移动
-        if (
-            ((icon.offsetWidth + icon.offsetLeft) < winwidth) && fx == 1
-            ||
-            (icon.offsetLeft > 0) && fx == 0
-        ) {
-            if (fx) {
-                icon.style.left = (icon.offsetLeft + 1) + 'px';
-            } else {
-
-                icon.style.left = (icon.offsetLeft - 1) + 'px';
-            }
-        } else {
-            if ((icon.offsetHeight + icon.offsetTop) < winheight) {
-                if (icon.offsetTop < (icon.offsetHeight * ydcnt)) {
-                    icon.style.top = (icon.offsetTop + 1) + 'px';
-                } else {
-                    if (fx) {
-                        fx = 0;
-                        icon.innerHTML = `<div class="topLeft"></div>
-    <div class="bottomLeft"></div>`;
-                    } else {
-                        fx = 1;
-                        icon.innerHTML = `<div class="topRight"></div>
-    <div class="bottomRight"></div>`;
-                    }
-                    ydcnt++;
-                }
-            } else {
-                rw = 0;
-                console.log('我自由了');
-            }
-        }
-    } else {
-
-        //完成任务后自由移动
-        let zx;//转向=0
-        let positionQrequency = 100;
-        //边界判断
-        switch (fx) {
-            case 1:
-                //上
-                if ((icon.offsetTop - 1) > 0) {
-                    zx = Math.round(Math.random() * positionQrequency);
-                } else {
-                    zx = 0;
-                    console.log('碰到上边界了')
-                }
-                break;
-            case 2:
-                //右
-                if ((icon.offsetWidth + icon.offsetLeft + 1) < winwidth) {
-                    zx = Math.round(Math.random() * positionQrequency);
-                } else {
-                    zx = 0;
-                    console.log('碰到右边界了')
-                }
-                break;
-            case 3:
-                //下
-                if ((icon.offsetHeight + icon.offsetTop + 1) < winheight) {
-                    zx = Math.round(Math.random() * positionQrequency);
-                } else {
-                    zx = 0;
-                    console.log('碰到下边界了')
-                }
-                break;
-            case 4:
-                //左
-                if ((icon.offsetLeft - 1) > 0) {
-                    zx = Math.round(Math.random() * positionQrequency);
-                } else {
-                    zx = 0;
-                    console.log('碰到左边界了')
-                }
-                break;
-        }
-
-        //转向
-        if (!zx) {
-            let isyd = 1;
-            let sjfx;
-            do {
-                sjfx = Math.round(Math.random() * 3) + 1;
-                if (sjfx != fx) {
-                    isyd = 0;
-                }
-            }
-            while (isyd);
-            fx = sjfx;
-        }
-
-        //行驶
-        let xiaohuangdou = document.getElementById('xiaohuangdou');
-        let fns = [
-            {
-                fn: () => {
-                    xiaohuangdou.style.transform = "rotate(-90deg)";
-                    icon.style.top = (icon.offsetTop - 1) + 'px';
-                }
-            },
-            {
-                fn: () => {
-                    xiaohuangdou.style.transform = "rotate(0deg)";
+    if (eatTingBool) {
+        let winwidth = $(window).width();
+        let winheight = $(window).height();
+        let icon = document.getElementById("xiaohuangdou");
+        if (rw) {
+            //正常移动
+            if (
+                ((icon.offsetWidth + icon.offsetLeft) < winwidth) && fx == 1
+                ||
+                (icon.offsetLeft > 0) && fx == 0
+            ) {
+                if (fx) {
                     icon.style.left = (icon.offsetLeft + 1) + 'px';
-                }
-            },
-            {
-                fn: () => {
-                    xiaohuangdou.style.transform = "rotate(90deg)";
-                    icon.style.top = (icon.offsetTop + 1) + 'px';
-                }
-            },
-            {
-                fn: () => {
-                    xiaohuangdou.style.transform = "rotate(180deg)";
+                } else {
+
                     icon.style.left = (icon.offsetLeft - 1) + 'px';
                 }
+            } else {
+                if ((icon.offsetHeight + icon.offsetTop) < winheight) {
+                    if (icon.offsetTop < (icon.offsetHeight * ydcnt)) {
+                        icon.style.top = (icon.offsetTop + 1) + 'px';
+                    } else {
+                        if (fx) {
+                            fx = 0;
+                            icon.innerHTML = `<div class="topLeft"></div>
+    <div class="bottomLeft"></div>`;
+                        } else {
+                            fx = 1;
+                            icon.innerHTML = `<div class="topRight"></div>
+    <div class="bottomRight"></div>`;
+                        }
+                        ydcnt++;
+                    }
+                } else {
+                    rw = 0;
+                    console.log('我自由了');
+                }
             }
-        ]
-        fns[fx - 1].fn();
-    }
+        } else {
+            //完成任务后自由移动
+            let zx;//转向=0
+            let positionQrequency = 100;
+            //边界判断
+            switch (fx) {
+                case 1:
+                    //上
+                    if ((icon.offsetTop - 1) > 0) {
+                        zx = Math.round(Math.random() * positionQrequency);
+                    } else {
+                        zx = 0;
+                        console.log('碰到上边界了')
+                    }
+                    break;
+                case 2:
+                    //右
+                    if ((icon.offsetWidth + icon.offsetLeft + 1) < winwidth) {
+                        zx = Math.round(Math.random() * positionQrequency);
+                    } else {
+                        zx = 0;
+                        console.log('碰到右边界了')
+                    }
+                    break;
+                case 3:
+                    //下
+                    if ((icon.offsetHeight + icon.offsetTop + 1) < winheight) {
+                        zx = Math.round(Math.random() * positionQrequency);
+                    } else {
+                        zx = 0;
+                        console.log('碰到下边界了')
+                    }
+                    break;
+                case 4:
+                    //左
+                    if ((icon.offsetLeft - 1) > 0) {
+                        zx = Math.round(Math.random() * positionQrequency);
+                    } else {
+                        zx = 0;
+                        console.log('碰到左边界了')
+                    }
+                    break;
+            }
 
+            //转向
+            if (!zx) {
+                let isyd = 1;
+                let sjfx;
+                do {
+                    sjfx = Math.round(Math.random() * 3) + 1;
+                    if (sjfx != fx) {
+                        isyd = 0;
+                    }
+                }
+                while (isyd);
+                fx = sjfx;
+            }
+
+            //行驶
+            let xiaohuangdou = document.getElementById('xiaohuangdou');
+            let fns = [
+                {
+                    fn: () => {
+                        xiaohuangdou.style.transform = "rotate(-90deg)";
+                        icon.style.top = (icon.offsetTop - 1) + 'px';
+                    }
+                },
+                {
+                    fn: () => {
+                        xiaohuangdou.style.transform = "rotate(0deg)";
+                        icon.style.left = (icon.offsetLeft + 1) + 'px';
+                    }
+                },
+                {
+                    fn: () => {
+                        xiaohuangdou.style.transform = "rotate(90deg)";
+                        icon.style.top = (icon.offsetTop + 1) + 'px';
+                    }
+                },
+                {
+                    fn: () => {
+                        xiaohuangdou.style.transform = "rotate(180deg)";
+                        icon.style.left = (icon.offsetLeft - 1) + 'px';
+                    }
+                }
+            ]
+            fns[fx - 1].fn();
+        }
+    }
     setTimeout(() => {
         xiaohuangdouyd(time)
     }, time)
@@ -265,10 +265,11 @@ function dg2(nodes, y_in_dex) {
     _nodes2.push(n2);
 }*/
 
-function addDelCarton(node) {
+function addDelCarton(node,time) {
     $(node)[0].style.position = 'relative';
     let div = document.createElement('div');
     div.setAttribute('class', 'processDiv');
+    div.setAttribute('animation', `mymove ${time/1000}s infinite`);
     $(node)[0].append(div);
 }
 
@@ -278,10 +279,10 @@ function remove_nodes(time) {
         return
     }
     let node = _nodes.shift();
-    addDelCarton(node)
+    if (eatTingBool)addDelCarton(node,time)
     setTimeout(() => {
         console.log(node)
-        node.remove();
+        if (eatTingBool)node.remove();
         remove_nodes(time)
     }, time)
 }
@@ -303,50 +304,6 @@ function updateYotube() {
         setZeroOpacity($('.ytd-topbar-logo-renderer'))
     }
 }
-
-/*-------------------------通讯---------------------*/
-function addBaiduButton() {
-    if (~window.location.href.indexOf('baidu')) {
-        let btnGroup = [
-            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
-            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
-        ];
-        btnGroup.forEach(item => {
-            let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
-            $('#form').append(button);
-            $('#' + item.id).on('click', () => sentMsg(item.msg, item.type));
-        })
-    }
-}
-
-function sentMsg(msg, type) {
-    /*content_script 不在拥有chrome.extension权限，chrome.extension.getViews({type:'popup'}*/
-    if (type === 'popup') console.log('温馨提示，请先打开popup页面');
-    if (msg === 'BI') console.log('尝试发送BI请求');
-    chrome.runtime.sendMessage({
-        info: "我是 content.js， 我在发送消息",
-        msg,
-        type
-    }, res => {
-        console.log('我收到的回调：', res)
-    })
-}
-
-//获取信息
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    console.log(request/*, sender, sendResponse*/);
-    if (request.type === 'boom') {
-        sendResponse('content_script:炸弹启动了');
-        xiaohuangdou();
-        return
-    }
-    if (request.type === 'tmall') {
-        sendResponse('开始获取数据');
-        getTmall();
-        return
-    }
-    sendResponse('content_script收到了你的消息！');
-});
 
 /******************************天猫爬取广告***************************/
 function getTmall() {
@@ -450,21 +407,97 @@ function addListenKeydown() {
     if (~window.location.href.indexOf('Ceo/liveshow.html')) {
         addBiFrame();
         $(document).keydown(function (event) {
-            if(event.keyCode === 113){
-                let gloabPlay=$('#gloabPlay');
-                let gloabPlayDisplay=gloabPlay.css('display');
-                gloabPlay.css('display',gloabPlayDisplay==='block'?'none':'block')
-                console.log('你按下了f2',gloabPlayDisplay)
+            if (event.keyCode === 113) {
+                let gloabPlay = $('#gloabPlay');
+                let gloabPlayDisplay = gloabPlay.css('display');
+                gloabPlay.css('display', gloabPlayDisplay === 'block' ? 'none' : 'block')
+                console.log('你按下了f2', gloabPlayDisplay)
             }
         })
     }
 }
+
+/******************************B站隐藏video***************************/
+function hidenBilili() {
+    if (~window.location.href.indexOf('bilibili')) {
+        document.title = 'JSdom';
+        setInterval(() => {
+            document.title = 'JSdom';
+            console.log('更正标题');
+        }, 60000)
+        let videoPlayer = document.getElementById('video-player');
+        let videoPlayerDisplay = $(videoPlayer).css('display');
+        $(videoPlayer).css('display', videoPlayerDisplay !== 'none' ? 'none' : 'block');
+    }
+}
+
+/******************************通讯******************************/
+function addBaiduButton() {
+    if (~window.location.href.indexOf('baidu')) {
+        let btnGroup = [
+            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
+            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
+        ];
+        btnGroup.forEach(item => {
+            let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
+            $('#form').append(button);
+            $('#' + item.id).on('click', () => sentMsg(item.msg, item.type));
+        })
+    }
+}
+
+function sentMsg(msg, type) {
+    /*content_script 不在拥有chrome.extension权限，chrome.extension.getViews({type:'popup'}*/
+    if (type === 'popup') console.log('温馨提示，请先打开popup页面');
+    if (msg === 'BI') console.log('尝试发送BI请求');
+    chrome.runtime.sendMessage({
+        info: "我是 content.js， 我在发送消息",
+        msg,
+        type
+    }, res => {
+        console.log('我收到的回调：', res)
+    })
+}
+
+//获取信息
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    console.log(request/*, sender, sendResponse*/);
+    let obj = {
+        boom: () => {
+            sendResponse('content_script:炸弹启动了');
+            xiaohuangdou();
+        },
+        tmall: () => {
+            sendResponse('开始获取数据');
+            getTmall();
+        },
+        bilili: () => {
+            sendResponse('操作BI视频display');
+            hidenBilili();
+        },
+        pauseBoom: () => {
+            sendResponse('暂停炸弹');
+            eatTingBool=false;
+        },
+        continueBoom:()=>{
+            sendResponse('继续炸弹');
+            eatTingBool=true;
+        },
+    }
+    if (obj.hasOwnProperty(request.type)) {
+        obj[request.type]();
+        return;
+    }
+    sendResponse('content_script收到了你的消息！');
+});
 
 window.onload = () => {
     updateYotube();
     addBaiduButton();
     resetZhihu();
     addListenKeydown();
+    hidenBilili();
     let cookie = $.cookie('downTmall');
     if (cookie === 'true') getTmall()
 }
+
