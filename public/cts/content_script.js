@@ -273,13 +273,17 @@ function addDelCarton(node,time) {
     $(node)[0].append(div);
 }
 
+let node = null;
+
 function remove_nodes(time) {
     if (_nodes.length === 0) {
         console.log('删除完成')
         return
     }
-    let node = _nodes.shift();
-    if (eatTingBool)addDelCarton(node,time)
+    if (eatTingBool){
+        node = _nodes.shift();
+        addDelCarton(node,time)
+    }
     setTimeout(() => {
         console.log(node)
         if (eatTingBool)node.remove();
