@@ -80,8 +80,9 @@ function removeIcon() {
 
 /******************************贪吃的元素***************************/
 
-let eatTingBool = true;
+let eatTingBool = true,node = null,_nodes = [];
 
+let ydcnt,fx,rw;//正常移动下的左右转向判断；自由移动的方向；1是正常移动再自由移动，0是自由移动
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
@@ -89,11 +90,10 @@ function xiaohuangdou() {
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
-    rw = 0;
+    rw = 1;
     xiaohuangdouyd(1);
 }
 
-let _nodes = [];
 
 function dg(nodes) {
     let ns = nodes.children();
@@ -101,6 +101,32 @@ function dg(nodes) {
         dg(ns.eq(i));
         _nodes.push(ns.eq(i));
     }
+}
+
+function addDelCarton(node,time) {
+    $(node)[0].style.position = 'relative';
+    let div = document.createElement('div');
+    div.setAttribute('class', 'processDiv');
+    div.setAttribute('animation', `mymove ${time/1000}s infinite`);
+    $(node)[0].append(div);
+}
+
+
+function remove_nodes(time) {
+    if (_nodes.length === 0) {
+        console.log('删除完成')
+        return
+    }
+    if (eatTingBool){
+        node = _nodes.shift();
+        addDelCarton(node,time)
+    }else $('.processDiv').attr('class','');
+
+    setTimeout(() => {
+        console.log(node)
+        if (eatTingBool)node.remove();
+        remove_nodes(time)
+    }, time)
 }
 
 function createxiaohuangdoumodel(x, y) {
@@ -115,10 +141,6 @@ function createxiaohuangdoumodel(x, y) {
     icon.style.top = y + 'px';
     document.body.appendChild(icon);
 }
-
-let ydcnt;
-let fx;
-let rw;
 
 function xiaohuangdouyd(time) {
     /**************** 移动贪吃人***************/
@@ -220,29 +242,30 @@ function xiaohuangdouyd(time) {
 
             //行驶
             let xiaohuangdou = document.getElementById('xiaohuangdou');
+            let offset=5;
             let fns = [
                 {
                     fn: () => {
                         xiaohuangdou.style.transform = "rotate(-90deg)";
-                        icon.style.top = (icon.offsetTop - 1) + 'px';
+                        icon.style.top = (icon.offsetTop - offset) + 'px';
                     }
                 },
                 {
                     fn: () => {
                         xiaohuangdou.style.transform = "rotate(0deg)";
-                        icon.style.left = (icon.offsetLeft + 1) + 'px';
+                        icon.style.left = (icon.offsetLeft + offset) + 'px';
                     }
                 },
                 {
                     fn: () => {
                         xiaohuangdou.style.transform = "rotate(90deg)";
-                        icon.style.top = (icon.offsetTop + 1) + 'px';
+                        icon.style.top = (icon.offsetTop + offset) + 'px';
                     }
                 },
                 {
                     fn: () => {
                         xiaohuangdou.style.transform = "rotate(180deg)";
-                        icon.style.left = (icon.offsetLeft - 1) + 'px';
+                        icon.style.left = (icon.offsetLeft - offset) + 'px';
                     }
                 }
             ]
@@ -264,33 +287,6 @@ function dg2(nodes, y_in_dex) {
     if (nodes.length > y_in_dex) dg2(nodes, y_in_dex);
     _nodes2.push(n2);
 }*/
-
-function addDelCarton(node,time) {
-    $(node)[0].style.position = 'relative';
-    let div = document.createElement('div');
-    div.setAttribute('class', 'processDiv');
-    div.setAttribute('animation', `mymove ${time/1000}s infinite`);
-    $(node)[0].append(div);
-}
-
-let node = null;
-
-function remove_nodes(time) {
-    if (_nodes.length === 0) {
-        console.log('删除完成')
-        return
-    }
-    if (eatTingBool){
-        node = _nodes.shift();
-        addDelCarton(node,time)
-    }else $('.processDiv').attr('class','');
-
-    setTimeout(() => {
-        console.log(node)
-        if (eatTingBool)node.remove();
-        remove_nodes(time)
-    }, time)
-}
 
 /*-------------------------过滤youtobe---------------------*/
 function setZeroOpacity(dom) {
