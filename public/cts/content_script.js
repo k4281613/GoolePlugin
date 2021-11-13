@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('我注入成功了！',$(this));
+    console.log('我注入成功了！', $(this));
     showIcon();
 });
 
@@ -80,9 +80,10 @@ function removeIcon() {
 
 /******************************贪吃的元素***************************/
 
-let eatTingBool = true,node = null,_nodes = [],time=100;
+let eatTingBool = true, node = null, _nodes = [], time = 100;
 
-let ydcnt,fx,rw;//正常移动下的左右转向判断；自由移动的方向；1是正常移动再自由移动，0是自由移动
+let ydcnt, fx, rw, angle;//正常移动下的左右转向判断；自由移动的方向；1是正常移动再自由移动，0是自由移动；角度
+
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
@@ -91,7 +92,11 @@ function xiaohuangdou() {
     ydcnt = 1;
     fx = 1;
     rw = 1;
-    xiaohuangdouyd(1);
+    angle = 45;
+    //xiaohuangdouyd(1);
+    xiaohuangdouyd2(100);
+
+
 }
 
 
@@ -107,7 +112,7 @@ function addDelCarton(node) {
     $(node)[0].style.position = 'relative';
     let div = document.createElement('div');
     div.setAttribute('class', 'processDiv');
-    div.style.animation=`mymove ${time/1000}s infinite`;
+    div.style.animation = `mymove ${time / 1000}s infinite`;
     $(node)[0].append(div);
 }
 
@@ -117,14 +122,14 @@ function remove_nodes() {
         console.log('删除完成')
         return
     }
-    if (eatTingBool){
+    if (eatTingBool) {
         node = _nodes.shift();
-        addDelCarton(node,time)
-    }else $('.processDiv').attr('class','');
+        addDelCarton(node, time)
+    } else $('.processDiv').attr('class', '');
 
     setTimeout(() => {
-        console.log(node)
-        if (eatTingBool)node.remove();
+        /*console.log(node)*/
+        if (eatTingBool) node.remove();
         remove_nodes(time)
     }, time)
 }
@@ -242,7 +247,7 @@ function xiaohuangdouyd(time) {
 
             //行驶
             let xiaohuangdou = document.getElementById('xiaohuangdou');
-            let offset=5;
+            let offset = 5;
             let fns = [
                 {
                     fn: () => {
@@ -274,6 +279,74 @@ function xiaohuangdouyd(time) {
     }
     setTimeout(() => {
         xiaohuangdouyd(time)
+    }, time)
+}
+function xiaohuangdouyd2(time) {
+    /**************** 移动贪吃人***************/
+    if (eatTingBool) {
+        let winwidth = $(window).width();
+        let winheight = $(window).height();
+        let icon = document.getElementById("xiaohuangdou");
+
+        //完成任务后自由移动
+        let zx;//转向=0
+        let positionQrequency = 5;
+
+
+
+        //zx = Math.round(Math.random() * positionQrequency);
+        zx = 0;
+        //转向
+        if (!zx) {
+            angle = Math.round(Math.random() * 360);
+        }
+        let offset = 10;
+        let offset_x = parseInt(parseFloat(Math.cos(angle * Math.PI / 180).toFixed(15)) * offset);
+        let offset_y = parseInt(parseFloat(Math.sin(angle * Math.PI / 180).toFixed(15)) * offset);
+
+        //边界判断
+        if ((icon.offsetTop + offset_y) <= 0) {
+            console.log('碰到上边界了')
+            angle += 180
+            if (angle>=360) {
+                angle -= 360;
+            }
+        } else if ((icon.offsetHeight + icon.offsetTop + offset_y) >= winheight) {
+            console.log('碰到下边界了')
+            angle += 180
+            if (angle >= 360) {
+                angle -= 360;
+            }
+        }else if ((icon.offsetLeft + offset_x) <= 0) {
+            console.log('碰到左边界了')
+            angle += 180
+            if (angle >= 360) {
+                angle -= 360;
+            }
+        } else if ((icon.offsetWidth + icon.offsetLeft + offset_x) >= winwidth) {
+            console.log('碰到左边界了')
+            angle += 180
+            if (angle >= 360) {
+                angle -= 360;
+            }
+        }
+
+
+        offset_x = parseInt(parseFloat(Math.cos(angle * Math.PI / 180).toFixed(15)) * offset);
+        offset_y = parseInt(parseFloat(Math.sin(angle * Math.PI / 180).toFixed(15)) * offset);
+        console.log(offset_x + '|' + offset_y);
+
+        //行驶
+        let xiaohuangdou = document.getElementById('xiaohuangdou');
+
+        xiaohuangdou.style.transform = "rotate(" + angle + "deg)";
+        icon.style.top = (icon.offsetTop + offset_y) + 'px';
+        icon.style.left = (icon.offsetLeft + offset_x) + 'px';
+
+
+    }
+    setTimeout(() => {
+        xiaohuangdouyd2(time)
     }, time)
 }
 
@@ -323,7 +396,7 @@ function getTmall() {
             obj.productStatus = $(children).children('.productStatus').text();
             arr.push(obj)
         })
-        sentMsg({data: arr}, 'background');
+        sentMsg({ data: arr }, 'background');
         let btn = document.querySelector('.ui-page-next');
         setTimeout(() => {
             if ($('.ui-page-cur').text() !== '10' && btn) {
@@ -436,8 +509,8 @@ function hidenBilili() {
 function addBaiduButton() {
     if (~window.location.href.indexOf('baidu')) {
         let btnGroup = [
-            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
-            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
+            { value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup' },
+            { value: '给background发信息', msg: 'BI', type: 'background', id: 'background' },
         ];
         btnGroup.forEach(item => {
             let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
@@ -478,14 +551,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         },
         pauseBoom: () => {
             sendResponse('暂停炸弹');
-            eatTingBool=false;
+            eatTingBool = false;
         },
-        continueBoom:()=>{
+        continueBoom: () => {
             sendResponse('继续炸弹');
-            eatTingBool=true;
+            eatTingBool = true;
         },
-        changeBoomVelocity:()=>{
-            time=request.time;
+        changeBoomVelocity: () => {
+            time = request.time;
             sendResponse('改变了炸弹的速率');
         }
     }
