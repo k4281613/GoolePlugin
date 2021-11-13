@@ -35,6 +35,7 @@ function Boast() {
     return <div className={'content_operation display_flex'}>
         <section>
             <div style={{lineHeight: '33px'}}>
+                <span>炸弹速度：</span>
                 <InputNumber onChange={(value) => setBoomVelocity(value)} value={boomvelocity}/>
                 <Button onClick={() => startBoom('popup:改变速率'+boomvelocity , 'changeBoomVelocity',{time:boomvelocity})}>确定</Button>
             </div>
