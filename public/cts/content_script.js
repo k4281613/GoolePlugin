@@ -283,7 +283,8 @@ function remove_nodes(time) {
     if (eatTingBool){
         node = _nodes.shift();
         addDelCarton(node,time)
-    }
+    }else $('.processDiv').attr('class','');
+
     setTimeout(() => {
         console.log(node)
         if (eatTingBool)node.remove();
