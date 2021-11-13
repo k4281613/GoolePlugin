@@ -80,13 +80,13 @@ function removeIcon() {
 
 /******************************贪吃的元素***************************/
 
-let eatTingBool = true,node = null,_nodes = [];
+let eatTingBool = true,node = null,_nodes = [],time=100;
 
 let ydcnt,fx,rw;//正常移动下的左右转向判断；自由移动的方向；1是正常移动再自由移动，0是自由移动
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
-    remove_nodes(100)
+    remove_nodes(time)
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
@@ -103,16 +103,16 @@ function dg(nodes) {
     }
 }
 
-function addDelCarton(node,time) {
+function addDelCarton(node) {
     $(node)[0].style.position = 'relative';
     let div = document.createElement('div');
     div.setAttribute('class', 'processDiv');
-    div.setAttribute('animation', `mymove ${time/1000}s infinite`);
+    div.style.animation=`mymove ${time/1000}s infinite`;
     $(node)[0].append(div);
 }
 
 
-function remove_nodes(time) {
+function remove_nodes() {
     if (_nodes.length === 0) {
         console.log('删除完成')
         return
@@ -484,6 +484,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             sendResponse('继续炸弹');
             eatTingBool=true;
         },
+        changeBoomVelocity:()=>{
+            time=request.time;
+            sendResponse('改变了炸弹的速率');
+        }
     }
     if (obj.hasOwnProperty(request.type)) {
         obj[request.type]();
