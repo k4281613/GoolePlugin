@@ -71,7 +71,9 @@
     animation: roll1 1s infinite;
     background-color: #f6d20e;
 }
-
+.moveAnimation{
+    transition: all 1s linear;
+}
 .processDiv {
     z-index: 9999;
 }

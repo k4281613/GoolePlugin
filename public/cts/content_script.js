@@ -87,14 +87,14 @@ let ydcnt, fx, rw, angle;//正常移动下的左右转向判断；自由移动�
 function xiaohuangdou() {
     let bodys = $('body');
     dg(bodys);
-    remove_nodes(time)
+    remove_nodes()
     createxiaohuangdoumodel(0, 0);
     ydcnt = 1;
     fx = 1;
     rw = 1;
     angle = 45;
     //xiaohuangdouyd(1);
-    xiaohuangdouyd2(100);
+    xiaohuangdouyd2();
 
 
 }
@@ -147,7 +147,7 @@ function createxiaohuangdoumodel(x, y) {
     document.body.appendChild(icon);
 }
 
-function xiaohuangdouyd(time) {
+function xiaohuangdouyd() {
     /**************** 移动贪吃人***************/
     if (eatTingBool) {
         let winwidth = $(window).width();
@@ -278,59 +278,30 @@ function xiaohuangdouyd(time) {
         }
     }
     setTimeout(() => {
-        xiaohuangdouyd(time)
+        xiaohuangdouyd()
     }, time)
 }
-function xiaohuangdouyd2(time) {
+
+let positionQrequency = 5,offset = 100;//转向，频率,位移
+function xiaohuangdouyd2() {
     /**************** 移动贪吃人***************/
     if (eatTingBool) {
-        let winwidth = $(window).width();
-        let winheight = $(window).height();
+        let winwidth = $(window).width(),winheight = $(window).height();
         let icon = document.getElementById("xiaohuangdou");
+        $(icon).attr('class','moveAnimation App-xiaohuangdou');
+        $(icon).css('transition',`all ${time/1000}s linear`);
 
-        //完成任务后自由移动
-        let zx;//转向=0
-        let positionQrequency = 5;
-
-
-
-        //zx = Math.round(Math.random() * positionQrequency);
-        zx = 0;
-        //转向
-        if (!zx) {
-            angle = Math.round(Math.random() * 360);
-        }
-        let offset = 10;
+        let zx;//转向，频率,位移
+        zx = Math.round(Math.random() * positionQrequency);
+        if (!zx) angle = Math.round(Math.random() * 360);
         let offset_x = parseInt(parseFloat(Math.cos(angle * Math.PI / 180).toFixed(15)) * offset);
         let offset_y = parseInt(parseFloat(Math.sin(angle * Math.PI / 180).toFixed(15)) * offset);
-
-        //边界判断
-        if ((icon.offsetTop + offset_y) <= 0) {
-            console.log('碰到上边界了')
-            angle += 180
-            if (angle>=360) {
-                angle -= 360;
-            }
-        } else if ((icon.offsetHeight + icon.offsetTop + offset_y) >= winheight) {
-            console.log('碰到下边界了')
-            angle += 180
-            if (angle >= 360) {
-                angle -= 360;
-            }
-        }else if ((icon.offsetLeft + offset_x) <= 0) {
-            console.log('碰到左边界了')
-            angle += 180
-            if (angle >= 360) {
-                angle -= 360;
-            }
-        } else if ((icon.offsetWidth + icon.offsetLeft + offset_x) >= winwidth) {
-            console.log('碰到左边界了')
-            angle += 180
-            if (angle >= 360) {
-                angle -= 360;
-            }
+        let arr=[(icon.offsetTop + offset_y) <= 0,(icon.offsetHeight + icon.offsetTop + offset_y) >= winheight,(icon.offsetLeft + offset_x) <= 0,(icon.offsetWidth + icon.offsetLeft + offset_x) >= winwidth];//上下左右
+        if(arr.some(bool=>bool===true)){
+            console.log('碰到边界了');
+            angle += 180;
+            if (angle>=360) angle -= 360;
         }
-
 
         offset_x = parseInt(parseFloat(Math.cos(angle * Math.PI / 180).toFixed(15)) * offset);
         offset_y = parseInt(parseFloat(Math.sin(angle * Math.PI / 180).toFixed(15)) * offset);
@@ -338,15 +309,12 @@ function xiaohuangdouyd2(time) {
 
         //行驶
         let xiaohuangdou = document.getElementById('xiaohuangdou');
-
         xiaohuangdou.style.transform = "rotate(" + angle + "deg)";
         icon.style.top = (icon.offsetTop + offset_y) + 'px';
         icon.style.left = (icon.offsetLeft + offset_x) + 'px';
-
-
     }
     setTimeout(() => {
-        xiaohuangdouyd2(time)
+        xiaohuangdouyd2()
     }, time)
 }
 
@@ -558,9 +526,17 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             eatTingBool = true;
         },
         changeBoomVelocity: () => {
-            time = request.time;
+            time = request.value;
             sendResponse('改变了炸弹的速率');
-        }
+        },
+        changePositionQrequency: () => {
+            positionQrequency = request.value;
+            sendResponse('改变了小黄豆转向频率');
+        },
+        changeOffset: () => {
+            offset = request.value;
+            sendResponse('改变了小黄豆转向位移');
+        },
     }
     if (obj.hasOwnProperty(request.type)) {
         obj[request.type]();
