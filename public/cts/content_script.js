@@ -95,8 +95,6 @@ function xiaohuangdou() {
     angle = 45;
     //xiaohuangdouyd(1);
     xiaohuangdouyd2();
-
-
 }
 
 
@@ -282,30 +280,31 @@ function xiaohuangdouyd() {
     }, time)
 }
 
-let positionQrequency = 5,offset = 100;//转向，频率,位移
+let positionQrequency = 5, offset = 100, xiaohuangdouydTimer = null, yellowRotate = 180;//转向，频率,位移
 function xiaohuangdouyd2() {
     /**************** 移动贪吃人***************/
     if (eatTingBool) {
-        let winwidth = $(window).width(),winheight = $(window).height();
+        let winwidth = $(window).width(), winheight = $(window).height();
         let icon = document.getElementById("xiaohuangdou");
-        $(icon).attr('class','moveAnimation App-xiaohuangdou');
-        $(icon).css('transition',`all ${time/1000}s linear`);
+        $(icon).attr('class', 'moveAnimation App-xiaohuangdou');
+        $(icon).css('transition', `all ${time / 1000}s linear`);
 
-        let zx;//转向，频率,位移
+        let zx, onePow = Math.pow(-1, parseInt(Math.random() * 10)), rangeRotate = Math.round(Math.random() * yellowRotate);//转向
         zx = Math.round(Math.random() * positionQrequency);
-        if (!zx) angle = Math.round(Math.random() * 360);
+        if (!zx) angle = angle + rangeRotate * onePow;
         let offset_x = parseInt(parseFloat(Math.cos(angle * Math.PI / 180).toFixed(15)) * offset);
         let offset_y = parseInt(parseFloat(Math.sin(angle * Math.PI / 180).toFixed(15)) * offset);
-        let arr=[(icon.offsetTop + offset_y) <= 0,(icon.offsetHeight + icon.offsetTop + offset_y) >= winheight,(icon.offsetLeft + offset_x) <= 0,(icon.offsetWidth + icon.offsetLeft + offset_x) >= winwidth];//上下左右
-        if(arr.some(bool=>bool===true)){
+
+        let arr = [(icon.offsetTop + offset_y) <= 0, (icon.offsetHeight + icon.offsetTop + offset_y) >= winheight, (icon.offsetLeft + offset_x) <= 0, (icon.offsetWidth + icon.offsetLeft + offset_x) >= winwidth];//上下左右
+        if (arr.some(bool => bool === true)) {
             console.log('碰到边界了');
             angle += 180;
-            if (angle>=360) angle -= 360;
+            if (angle >= 360) angle -= 360;
         }
 
         offset_x = parseInt(parseFloat(Math.cos(angle * Math.PI / 180).toFixed(15)) * offset);
         offset_y = parseInt(parseFloat(Math.sin(angle * Math.PI / 180).toFixed(15)) * offset);
-        console.log(offset_x + '|' + offset_y);
+        // console.log(offset_x + '|' + offset_y);
 
         //行驶
         let xiaohuangdou = document.getElementById('xiaohuangdou');
@@ -313,7 +312,7 @@ function xiaohuangdouyd2() {
         icon.style.top = (icon.offsetTop + offset_y) + 'px';
         icon.style.left = (icon.offsetLeft + offset_x) + 'px';
     }
-    setTimeout(() => {
+    xiaohuangdouydTimer = setTimeout(() => {
         xiaohuangdouyd2()
     }, time)
 }
@@ -364,7 +363,7 @@ function getTmall() {
             obj.productStatus = $(children).children('.productStatus').text();
             arr.push(obj)
         })
-        sentMsg({ data: arr }, 'background');
+        sentMsg({data: arr}, 'background');
         let btn = document.querySelector('.ui-page-next');
         setTimeout(() => {
             if ($('.ui-page-cur').text() !== '10' && btn) {
@@ -477,8 +476,8 @@ function hidenBilili() {
 function addBaiduButton() {
     if (~window.location.href.indexOf('baidu')) {
         let btnGroup = [
-            { value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup' },
-            { value: '给background发信息', msg: 'BI', type: 'background', id: 'background' },
+            {value: '给popup发信息', msg: 'BI', type: 'popup', id: 'popup'},
+            {value: '给background发信息', msg: 'BI', type: 'background', id: 'background'},
         ];
         btnGroup.forEach(item => {
             let button = `<span class="bg s_btn_wr"><input type="button" class="bg s_btn addBaiduBtn" value=${item.value} id=${item.id} /></span>`;
@@ -527,6 +526,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         },
         changeBoomVelocity: () => {
             time = request.value;
+            clearTimeout(xiaohuangdouydTimer);
+            xiaohuangdouyd2();
             sendResponse('改变了炸弹的速率');
         },
         changePositionQrequency: () => {
@@ -537,6 +538,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             offset = request.value;
             sendResponse('改变了小黄豆转向位移');
         },
+        changeYellowRotate: () => {
+            yellowRotate = request.value;
+            clearTimeout(xiaohuangdouydTimer);
+            xiaohuangdouyd2();
+            sendResponse('改变了小黄豆转向角度');
+        }
     }
     if (obj.hasOwnProperty(request.type)) {
         obj[request.type]();

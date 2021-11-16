@@ -8,6 +8,7 @@ function Boast() {
         {title: '炸弹/小黄豆速度：', value: 100, type: 'changeBoomVelocity', params: {}},
         {title: '小黄豆转向频率：', value: 5, type: 'changePositionQrequency', params: {}},
         {title: '小黄豆转向位移：', value: 100, type: 'changeOffset', params: {}},
+        {title: '小黄豆转向角度：', value: 18, type: 'changeYellowRotate', params: {}},
     ]
     const [boomStatus, setBoomStatus] = useState(menus);
     useEffect(() => {
